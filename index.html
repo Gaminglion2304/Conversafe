@@ -438,6 +438,52 @@
             background: var(--surface);
         }
 
+        /* ─── WAVE ANIMATION ─── */
+        .team-wave-wrap {
+            position: relative;
+            overflow: hidden;
+            padding: 64px 24px 80px;
+        }
+        .team-wave-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            background: linear-gradient(180deg, #e8f4fd 0%, #d0e8f7 50%, #b8d9f0 100%);
+        }
+        .team-wave-bg svg {
+            position: absolute;
+            bottom: 0;
+            width: 200%;
+            height: 60%;
+        }
+        .wave1 {
+            animation: waveMove 9s linear infinite;
+            opacity: 0.5;
+        }
+        .wave2 {
+            animation: waveMove 14s linear infinite reverse;
+            opacity: 0.35;
+            bottom: -10px;
+        }
+        .wave3 {
+            animation: waveMove 6s linear infinite;
+            opacity: 0.25;
+            bottom: -20px;
+        }
+        .wave2, .wave3 {
+            position: absolute;
+            width: 200%;
+        }
+        @keyframes waveMove {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+        .team-wave-wrap .team-grid {
+            position: relative;
+            z-index: 1;
+        }
+
         .team-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -873,8 +919,25 @@
     <div class="container">
         <h2 class="reveal">A Training Partnership of Professionally Experienced People</h2>
         <p class="section-intro reveal">Our central shared values are sustainable behaviour transformation for life changing results. The key success factor is that we understand and practice training delivery not by size but by strength.</p>
+    </div>
 
-        <div class="team-grid reveal-group">
+    <div class="team-wave-wrap">
+        <div class="team-wave-bg">
+            <svg class="wave1" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,160 C180,220 360,80 540,160 C720,240 900,80 1080,160 C1260,240 1440,80 1440,160 L1440,320 L0,320 Z" fill="#5b9bd5"/>
+                <path d="M1440,160 C1620,240 1800,80 1980,160 C2160,240 2340,80 2520,160 C2700,240 2880,80 2880,160 L2880,320 L1440,320 Z" fill="#5b9bd5"/>
+            </svg>
+            <svg class="wave2" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,200 C240,260 480,120 720,190 C960,260 1200,100 1440,180 L1440,320 L0,320 Z" fill="#2f6fa8"/>
+                <path d="M1440,200 C1680,260 1920,120 2160,190 C2400,260 2640,100 2880,180 L2880,320 L1440,320 Z" fill="#2f6fa8"/>
+            </svg>
+            <svg class="wave3" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,240 C200,180 400,280 600,240 C800,200 1000,270 1200,240 C1320,225 1390,250 1440,245 L1440,320 L0,320 Z" fill="#1a2f4e"/>
+                <path d="M1440,240 C1640,180 1840,280 2040,240 C2240,200 2440,270 2640,240 C2760,225 2830,250 2880,245 L2880,320 L1440,320 Z" fill="#1a2f4e"/>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="team-grid reveal-group">
 
             <div class="team-card">
                 <img src="https://conversafe.pro/wp-content/uploads/2024/12/RS-headshot-bw.jpg" alt="Robin Stowell">
@@ -955,6 +1018,7 @@
             </div>
 
         </div>
+        </div><!-- /.team-wave-wrap -->
     </div>
 </section>
 
