@@ -422,6 +422,16 @@ h2 {
     cursor: pointer;
 }
 
+.contact-btn-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.15);
+    display: block;
+}
+
 /* LinkedIn */
 .contact-btn--li {
     background: linear-gradient(135deg, #0a66c2 0%, #0d7be0 100%);
