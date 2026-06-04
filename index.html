@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
-    <!-- ─── SCHEMA MARKUP ─── -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -56,22 +55,6 @@
                 "@type": "Answer",
                 "text": "SELFTY adds the human dimension. Most safety programmes focus on equipment, procedures, and compliance checklists. SELFTY uses neuroscience to change the underlying habits and perception mechanisms that cause human error in the first place — no management system, no reporting, no PowerPoint-heavy sessions."
               }
-            },
-            {
-              "@type": "Question",
-              "name": "Who is SELFTY for?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Any organisation operating in a high-risk environment where human error has real consequences — offshore and renewable energy, construction, maritime, logistics, and manufacturing."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "How do we get started?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "The fastest route is LinkedIn direct messaging via the ConverSafe Partnership company page. The team will get back to you within one business day."
-              }
             }
           ]
         }
@@ -89,6 +72,7 @@
         </div>
         <ul class="nav-links">
             <li><a href="#selfty" onclick="smoothScrollTo(event,'selfty')">SELFTY</a></li>
+            <li><a href="#compass" onclick="smoothScrollTo(event,'compass')">The Compass</a></li>
             <li><a href="#team" onclick="smoothScrollTo(event,'team')">Team</a></li>
             <li><a href="#white-paper" onclick="smoothScrollTo(event,'white-paper')">White Paper</a></li>
             <li><a href="#faq" onclick="smoothScrollTo(event,'faq')">FAQ</a></li>
@@ -99,16 +83,13 @@
 
 <!-- ─── HERO ─── -->
 <section class="hero">
-
     <div class="hero-slides">
         <div class="hero-slide hero-slide-1 active"></div>
         <div class="hero-slide hero-slide-2"></div>
         <div class="hero-slide hero-slide-3"></div>
         <div class="hero-slide hero-slide-4"></div>
     </div>
-
     <div class="hero-overlay"></div>
-
     <div class="hero-glass">
         <h1>Let's talk <em>SELFTY</em></h1>
         <p class="hero-sub">The paradigm shift in personal safety — empowering individuals to protect themselves and those around them.</p>
@@ -117,34 +98,27 @@
             Discover SELFTY
         </a>
     </div>
-
     <div class="slide-indicators">
         <div class="slide-dot active" data-index="0"></div>
         <div class="slide-dot" data-index="1"></div>
         <div class="slide-dot" data-index="2"></div>
         <div class="slide-dot" data-index="3"></div>
     </div>
-
 </section>
 
-<!-- ─── WHAT IS SELFTY — ANSWER-FIRST SUMMARY ─── -->
+<!-- ─── WHAT IS SELFTY ─── -->
 <section class="selfty-intro" id="selfty">
     <div class="container-narrow">
-
-        <!-- Answer-first summary (30–80 words) -->
         <div class="answer-first reveal">
             <p class="answer-label">In short</p>
             <p class="answer-text">SELFTY is a neuroscience-based behavioural safety programme. It reduces human error at work, on the road, and at home by changing the habits and perception mechanisms that cause accidents. No new management system. No reporting burden. Lasting results through maturity-level-oriented leadership and adult learning.</p>
         </div>
 
         <h2 class="reveal" id="what-is-selfty">What is SELFTY?</h2>
-
         <p class="reveal">SELFTY combines the words <strong>SELF</strong> and <strong>SAFETY</strong> — a new term for the paradigm shift from compliance-first thinking to personal ownership of safe behaviour.</p>
-
         <p class="reveal">Its most obvious application is occupational health and safety. But the potential extends further: strategic personnel development, performance management, and culture change.</p>
 
         <div class="accordion-wrap reveal">
-
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
                     The core problem: human error
@@ -157,7 +131,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
                     How SELFTY works
@@ -172,7 +145,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
                     What this means for your company
@@ -186,72 +158,61 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
 
-<!-- ─── COMPASS / FEATURES SPLIT ─── -->
-<section class="compass-section" id="behavioural-safety">
-    <div class="container">
-        <div class="split-grid">
+<!-- ─── SELFTY COMPASS ─── -->
+<section class="compass-section" id="compass">
+    <div class="compass-wrap-outer">
 
-            <div class="reveal">
-                <div class="compass-container">
-                    <div class="compass-layer-text">
-                        <img src="Images/Text.jpg" alt="SELFTY Compass">
+        <!-- LEFT: compass image + CTA -->
+        <div class="compass-left reveal">
+            <div class="compass-img-wrap">
+                <img src="Images/Compass2.png" alt="The SELFTY Compass — 8 competencies">
+            </div>
+            <button class="compass-cta-btn" id="compassCtaBtn" onclick="toggleCompassAccordion()">
+                Explore the 8 Competencies <span class="compass-arrow">›</span>
+            </button>
+        </div>
+
+        <!-- RIGHT: intro text + context cards -->
+        <div class="compass-right reveal">
+            <h2 style="text-align:left; margin-bottom:8px;">The SELFTY Compass</h2>
+            <p class="compass-tagline">Your Inner Navigation System</p>
+            <p class="compass-desc">An 8-competency framework that helps people recognise their internal state and adjust behaviour — across <strong>Work</strong>, <strong>Street</strong>, and <strong>Home</strong>.</p>
+            <div class="compass-ctx-cards">
+                <div class="compass-ctx-card">
+                    <span class="compass-ctx-icon">🏭</span>
+                    <div>
+                        <strong>Work</strong>
+                        <span>Reduce operational risk</span>
                     </div>
-                    <div class="compass-layer-rose">
-                        <img src="Images/Compass.png" alt="Rotating compass rose">
+                </div>
+                <div class="compass-ctx-card">
+                    <span class="compass-ctx-icon">🚗</span>
+                    <div>
+                        <strong>Street</strong>
+                        <span>Prevent distraction &amp; fatigue</span>
+                    </div>
+                </div>
+                <div class="compass-ctx-card">
+                    <span class="compass-ctx-icon">🏠</span>
+                    <div>
+                        <strong>Home</strong>
+                        <span>Avoid everyday accidents</span>
                     </div>
                 </div>
             </div>
-
-            <div class="reveal">
-                <h2 style="text-align:left; margin-bottom:8px;">The SELFTY Compass</h2>
-                <p style="color:var(--text-muted); font-weight:300; margin-bottom:8px;">A framework for lasting behavioural change in high-risk environments.</p>
-                <ul class="feature-list">
-                    <li>
-                        <div class="fi-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        </div>
-                        <div class="fi-text">
-                            <h3>24/7 Safety Mindset</h3>
-                            <p>Impacts work life, road traffic, and private life simultaneously.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="fi-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        </div>
-                        <div class="fi-text">
-                            <h3>Personal Ownership of Safety</h3>
-                            <p>Self-motivation for safe behaviours — without compliance paperwork.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="fi-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        </div>
-                        <div class="fi-text">
-                            <h3>Reduced Human Error</h3>
-                            <p>Conscious decision-making and safer subconscious reactions to cut workplace accidents and operational losses.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="fi-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                        </div>
-                        <div class="fi-text">
-                            <h3>Operational Performance</h3>
-                            <p>Greater personnel availability, fewer lost working days.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
         </div>
+
     </div>
+
+    <!-- Accordion — full width below -->
+    <div class="compass-accordion-wrap" id="compassAccordionWrap">
+        <div class="compass-accordion-inner" id="compassAccordionInner"></div>
+    </div>
+
 </section>
 
 <!-- ─── TEAM ─── -->
@@ -377,7 +338,6 @@
         <p class="section-intro reveal">Straight answers to the questions we hear most.</p>
 
         <div class="accordion-wrap reveal">
-
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
                     What does SELFTY mean?
@@ -389,7 +349,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
                     How is SELFTY different from standard HSE training?
@@ -402,7 +361,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
                     Which industries does SELFTY apply to?
@@ -415,7 +373,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
                     Does SELFTY require a new management system?
@@ -427,7 +384,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
                     What does the SELFTY programme involve?
@@ -441,7 +397,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
                     How long does it take to see results?
@@ -454,7 +409,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
                     How do we get started?
@@ -466,7 +420,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
@@ -479,65 +432,40 @@
 
         <div class="accordion-wrap reveal">
             <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)">
-                    Good health and wellbeing
-                    <span class="acc-icon">+</span>
-                </div>
-                <div class="acc-body">
-                    <div class="acc-body-inner">
-                        <p><img src="Images/SDG Good health.png" alt="SDG 3" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
-                        <p>SDG 3.6 — Halve the number of global deaths and injuries from road traffic accidents.</p>
-                    </div>
-                </div>
+                <div class="acc-header" onclick="toggleAcc(this)">Good health and wellbeing<span class="acc-icon">+</span></div>
+                <div class="acc-body"><div class="acc-body-inner">
+                    <p><img src="Images/SDG Good health.png" alt="SDG 3" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
+                    <p>SDG 3.6 — Halve the number of global deaths and injuries from road traffic accidents.</p>
+                </div></div>
             </div>
             <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)">
-                    Decent work and economic growth
-                    <span class="acc-icon">+</span>
-                </div>
-                <div class="acc-body">
-                    <div class="acc-body-inner">
-                        <p><img src="Images/SDG Decent work.png" alt="SDG 8" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
-                        <p>SDG 8.2 — Higher economic productivity through innovation and labour-intensive sector development.</p>
-                        <p>SDG 8.8 — Protect labour rights and promote safe, secure working environments for all workers.</p>
-                    </div>
-                </div>
+                <div class="acc-header" onclick="toggleAcc(this)">Decent work and economic growth<span class="acc-icon">+</span></div>
+                <div class="acc-body"><div class="acc-body-inner">
+                    <p><img src="Images/SDG Decent work.png" alt="SDG 8" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
+                    <p>SDG 8.2 — Higher economic productivity through innovation and labour-intensive sector development.</p>
+                    <p>SDG 8.8 — Protect labour rights and promote safe, secure working environments for all workers.</p>
+                </div></div>
             </div>
             <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)">
-                    Sustainable cities and communities
-                    <span class="acc-icon">+</span>
-                </div>
-                <div class="acc-body">
-                    <div class="acc-body-inner">
-                        <p><img src="Images/SDG Sustainable.png" alt="SDG 11" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
-                        <p>SDG 11.2 — Access to safe, affordable, accessible, and sustainable transport systems for all.</p>
-                    </div>
-                </div>
+                <div class="acc-header" onclick="toggleAcc(this)">Sustainable cities and communities<span class="acc-icon">+</span></div>
+                <div class="acc-body"><div class="acc-body-inner">
+                    <p><img src="Images/SDG Sustainable.png" alt="SDG 11" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
+                    <p>SDG 11.2 — Access to safe, affordable, accessible, and sustainable transport systems for all.</p>
+                </div></div>
             </div>
             <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)">
-                    Climate action
-                    <span class="acc-icon">+</span>
-                </div>
-                <div class="acc-body">
-                    <div class="acc-body-inner">
-                        <p><img src="Images/SDG Climate action.png" alt="SDG 13" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
-                        <p>SDG 13.1 — Strengthen resilience and adaptive capacity to climate-related hazards and natural disasters.</p>
-                    </div>
-                </div>
+                <div class="acc-header" onclick="toggleAcc(this)">Climate action<span class="acc-icon">+</span></div>
+                <div class="acc-body"><div class="acc-body-inner">
+                    <p><img src="Images/SDG Climate action.png" alt="SDG 13" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
+                    <p>SDG 13.1 — Strengthen resilience and adaptive capacity to climate-related hazards and natural disasters.</p>
+                </div></div>
             </div>
             <div class="acc-item">
-                <div class="acc-header" onclick="toggleAcc(this)">
-                    Peace, justice and strong institutions
-                    <span class="acc-icon">+</span>
-                </div>
-                <div class="acc-body">
-                    <div class="acc-body-inner">
-                        <p><img src="Images/SDG Peace.png" alt="SDG 16" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
-                        <p>SDG 16.1 — Significantly reduce all forms of violence and related death rates everywhere.</p>
-                    </div>
-                </div>
+                <div class="acc-header" onclick="toggleAcc(this)">Peace, justice and strong institutions<span class="acc-icon">+</span></div>
+                <div class="acc-body"><div class="acc-body-inner">
+                    <p><img src="Images/SDG Peace.png" alt="SDG 16" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
+                    <p>SDG 16.1 — Significantly reduce all forms of violence and related death rates everywhere.</p>
+                </div></div>
             </div>
         </div>
 
@@ -552,24 +480,16 @@
         <p class="reveal" style="margin-bottom:8px;">Ready to explore SELFTY for your organisation? Two ways to reach us:</p>
 
         <div class="contact-btns reveal">
-
-    <a href="https://www.linkedin.com/company/conversafe/" target="_blank" rel="noopener" class="contact-btn contact-btn--li">
-        <img src="Images/Linkedin.jpg" alt="LinkedIn" class="contact-btn-img">
-        <span class="contact-btn-label">Message on LinkedIn</span>
-        <span class="contact-btn-sub">Fastest response</span>
-    </a>
-
-    <a href="#team" onclick="smoothScrollTo(event,'team')" class="contact-btn contact-btn--team">
-    <img src="Images/Team.jpg" alt="Team" class="contact-btn-img">
-    <span class="contact-btn-label">Meet the Team</span>
-    <span class="contact-btn-sub">Connect with a partner directly</span>
-</a>
-
-
-</div>
-
-            
-
+            <a href="https://www.linkedin.com/company/conversafe/" target="_blank" rel="noopener" class="contact-btn contact-btn--li">
+                <img src="Images/Linkedin.jpg" alt="LinkedIn" class="contact-btn-img">
+                <span class="contact-btn-label">Message on LinkedIn</span>
+                <span class="contact-btn-sub">Fastest response</span>
+            </a>
+            <a href="#team" onclick="smoothScrollTo(event,'team')" class="contact-btn contact-btn--team">
+                <img src="Images/Team.jpg" alt="Team" class="contact-btn-img">
+                <span class="contact-btn-label">Meet the Team</span>
+                <span class="contact-btn-sub">Connect with a partner directly</span>
+            </a>
         </div>
 
         <div class="privacy-box reveal">
@@ -592,7 +512,7 @@
         <div class="footer-links">
             <p style="font-weight:600; color:rgba(255,255,255,0.85); margin-bottom:8px;">Quick links</p>
             <p><a href="#selfty" onclick="smoothScrollTo(event,'selfty')">What is SELFTY?</a></p>
-            <p><a href="#behavioural-safety" onclick="smoothScrollTo(event,'behavioural-safety')">Behavioural Safety</a></p>
+            <p><a href="#compass" onclick="smoothScrollTo(event,'compass')">The SELFTY Compass</a></p>
             <p><a href="#faq" onclick="smoothScrollTo(event,'faq')">FAQ</a></p>
             <p><a href="https://www.linkedin.com/company/conversafe/" target="_blank" rel="noopener">LinkedIn</a></p>
         </div>
@@ -600,77 +520,197 @@
 </footer>
 
 <script>
-    // ─── SMOOTH SCROLL ───
-    function smoothScrollTo(e, id) {
-        e.preventDefault();
-        const target = document.getElementById(id);
-        if (!target) return;
-        const start    = window.scrollY;
-        const end      = target.getBoundingClientRect().top + start - 60;
-        const duration = 900;
-        let startTime  = null;
-        function easeInOutCubic(t) {
-            return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+// ─── COMPASS ACCORDION ───
+(function() {
+    const competencies = [
+        {
+            title: 'Trigger Your Self-States',
+            summary: 'Recognise when your internal state — stress, fatigue, frustration — is affecting your attention and behaviour before you act.',
+            work:   'Pause and assess your state before operating equipment or starting a high-risk task.',
+            street: 'Check in with yourself if feeling tired, distracted, or rushed while driving.',
+            home:   'Notice when you are irritated or hurried and take a deliberate breath before acting.'
+        },
+        {
+            title: 'Scan Close Calls',
+            summary: 'Learn from near-misses by reviewing what self-states, hazards, and habits were involved — and what to do differently.',
+            work:   'Debrief any near-miss with the team promptly and honestly.',
+            street: 'Replay what led to a near-accident and adjust your behaviour going forward.',
+            home:   'Discuss close calls with household members openly and without blame.'
+        },
+        {
+            title: 'Trigger on Habits',
+            summary: 'Identify automatic behaviours — safe and unsafe — that drive how you operate, and replace unsafe ones consciously.',
+            work:   'Notice when you are rushing through safety steps out of habit.',
+            street: 'Recognise default distractions such as reaching for your phone at the wheel.',
+            home:   'Break routines that repeatedly lead to careless accidents at home.'
+        },
+        {
+            title: 'Scan the Future',
+            summary: 'Look ahead and anticipate what could go wrong — then put controls in place before the risk materialises.',
+            work:   'Ask "what if" before starting a complex or safety-critical task.',
+            street: 'Plan routes and timing to reduce exposure to fatigue and risk.',
+            home:   'Prepare for foreseeable risks before guests, children, or new situations arrive.'
+        },
+        {
+            title: 'Scan Around You',
+            summary: 'Actively read your environment rather than operating on autopilot — keeping situational awareness sharp even in familiar settings.',
+            work:   'Stay alert to shifting conditions on site, on the plant floor, or at height.',
+            street: "Read road conditions, weather, and other drivers' behaviour continuously.",
+            home:   'Stay aware of children, pets, wet surfaces, and changing hazards in the space.'
+        },
+        {
+            title: 'Trigger on Hazards',
+            summary: 'Recognise when you are in the zone of physical danger and respond with the competency to stop, assess, and act safely.',
+            work:   'Identify when you are in the line of fire and step out before acting.',
+            street: 'Recognise loss of traction, reduced visibility, or compromised vehicle control.',
+            home:   'Notice when a task exceeds your physical capability and ask for help.'
+        },
+        {
+            title: 'Scan Others',
+            summary: 'Read the self-states, habits, and hazards of the people around you before they escalate into incidents.',
+            work:   "Spot a colleague who is rushing, distracted, or fatigued before they are injured.",
+            street: 'Notice erratic driver behaviour early and create safe space.',
+            home:   'Pick up on stress or distraction signals in family members and respond supportively.'
+        },
+        {
+            title: 'Trigger to Stop Yourself or Others',
+            summary: 'Know when and how to halt an unsafe action — your own or someone else\'s — using a clear, practised decision framework.',
+            work:   'Apply the rule of 3 Ambers: three warning signs means stop the task and reassess.',
+            street: 'Pull over immediately when you feel impaired, tired, or too distracted to drive safely.',
+            home:   'Intervene confidently when a child or family member is heading into danger.'
         }
-        function step(timestamp) {
-            if (!startTime) startTime = timestamp;
-            const elapsed  = timestamp - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            window.scrollTo(0, start + (end - start) * easeInOutCubic(progress));
-            if (progress < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-    }
+    ];
 
-    // ─── ACCORDION ───
-    function toggleAcc(header) {
-        const item = header.closest('.acc-item');
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.acc-item.open').forEach(el => el.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
-    }
+    const inner = document.getElementById('compassAccordionInner');
+    const wrap  = document.getElementById('compassAccordionWrap');
+    const btn   = document.getElementById('compassCtaBtn');
+    let isOpen  = false;
+    let openIdx = -1;
 
-    // ─── HERO SLIDESHOW ───
-    (function() {
-        const slides = document.querySelectorAll('.hero-slide');
-        const dots   = document.querySelectorAll('.slide-dot');
-        let current  = 0;
-        let timer;
-        function goTo(index) {
-            slides[current].classList.remove('active');
-            dots[current].classList.remove('active');
-            current = index;
-            slides[current].classList.add('active');
-            dots[current].classList.add('active');
+    competencies.forEach(function(c, i) {
+        const item = document.createElement('div');
+        item.className = 'cacc-item';
+        item.innerHTML =
+            '<button class="cacc-header" id="cah' + i + '" onclick="toggleCompassItem(' + i + ')">' +
+                '<div class="cacc-num">' + (i + 1) + '</div>' +
+                '<div class="cacc-title">' + c.title + '</div>' +
+                '<span class="cacc-chevron">▼</span>' +
+            '</button>' +
+            '<div class="cacc-body" id="cab' + i + '">' +
+                '<div class="cacc-body-inner">' +
+                    '<div class="cacc-inner">' +
+                        '<p class="cacc-summary">' + c.summary + '</p>' +
+                        '<div class="cacc-ctx-rows">' +
+                            '<div class="cacc-ctx-row"><span class="cacc-ctx-lbl">🏭 Work</span><span class="cacc-ctx-val">' + c.work + '</span></div>' +
+                            '<div class="cacc-ctx-row"><span class="cacc-ctx-lbl">🚗 Street</span><span class="cacc-ctx-val">' + c.street + '</span></div>' +
+                            '<div class="cacc-ctx-row"><span class="cacc-ctx-lbl">🏠 Home</span><span class="cacc-ctx-val">' + c.home + '</span></div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+        inner.appendChild(item);
+    });
+
+    window.toggleCompassAccordion = function() {
+        isOpen = !isOpen;
+        wrap.classList.toggle('open', isOpen);
+        btn.classList.toggle('open', isOpen);
+        btn.querySelector('.compass-arrow').textContent = isOpen ? '↓' : '›';
+        if (isOpen && openIdx === -1) window.toggleCompassItem(0);
+        if (isOpen) {
+            setTimeout(function() { wrap.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
         }
-        function next() { goTo((current + 1) % slides.length); }
-        function startTimer() {
-            clearInterval(timer);
-            timer = setInterval(next, 6000);
-        }
-        dots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                goTo(parseInt(this.dataset.index));
-                startTimer();
-            });
+    };
+
+    window.toggleCompassItem = function(i) {
+        const header  = document.getElementById('cah' + i);
+        const body    = document.getElementById('cab' + i);
+        const wasOpen = header.classList.contains('active');
+        competencies.forEach(function(_, j) {
+            document.getElementById('cah' + j).classList.remove('active');
+            document.getElementById('cab' + j).classList.remove('open');
         });
-        startTimer();
-    })();
+        if (!wasOpen) {
+            header.classList.add('active');
+            body.classList.add('open');
+            openIdx = i;
+        } else {
+            openIdx = -1;
+        }
+    };
+})();
 
-    // ─── SCROLL REVEAL ───
-    (function() {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.reveal, .reveal-group').forEach(function(el) {
-            observer.observe(el);
+// ─── SMOOTH SCROLL ───
+function smoothScrollTo(e, id) {
+    e.preventDefault();
+    const target = document.getElementById(id);
+    if (!target) return;
+    const start    = window.scrollY;
+    const end      = target.getBoundingClientRect().top + start - 60;
+    const duration = 900;
+    let startTime  = null;
+    function easeInOutCubic(t) {
+        return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+    }
+    function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const elapsed  = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, start + (end - start) * easeInOutCubic(progress));
+        if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+}
+
+// ─── ACCORDION ───
+function toggleAcc(header) {
+    const item = header.closest('.acc-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.acc-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+}
+
+// ─── HERO SLIDESHOW ───
+(function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots   = document.querySelectorAll('.slide-dot');
+    let current  = 0;
+    let timer;
+    function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = index;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+    }
+    function next() { goTo((current + 1) % slides.length); }
+    function startTimer() {
+        clearInterval(timer);
+        timer = setInterval(next, 6000);
+    }
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            goTo(parseInt(this.dataset.index));
+            startTimer();
         });
-    })();
+    });
+    startTimer();
+})();
+
+// ─── SCROLL REVEAL ───
+(function() {
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .reveal-group').forEach(function(el) {
+        observer.observe(el);
+    });
+})();
 </script>
 
 </body>
