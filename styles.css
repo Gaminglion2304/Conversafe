@@ -35,12 +35,15 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 22px 56px;
+    gap: 16px;
 }
 .logo img { height: 44px; }
 .nav-links {
     display: flex;
     gap: 28px;
     list-style: none;
+    flex: 1;
+    justify-content: center;
 }
 .nav-links a {
     color: rgba(255,255,255,0.85);
@@ -51,6 +54,35 @@ nav {
     transition: color 0.2s;
 }
 .nav-links a:hover { color: #fff; }
+
+/* ─── LANGUAGE TOGGLE ─── */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.lang-btn {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.65);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.lang-btn.active {
+    background: rgba(255,255,255,0.22);
+    color: #fff;
+}
+.lang-btn:hover:not(.active) { color: rgba(255,255,255,0.9); }
 
 /* ─── HERO ─── */
 .hero {
@@ -606,19 +638,6 @@ h2 {
 }
 .contact-btn--team .contact-btn-sub {
     font-size: 0.78rem; opacity: 0.85; color: #e8f4fd;
-}
-
-/* Outline variant */
-.contact-btn--outline {
-    background: var(--surface-2);
-    border: 1.5px solid rgba(91,155,213,0.25);
-    color: var(--text);
-    box-shadow: 0 3px 10px rgba(91,155,213,0.08);
-}
-.contact-btn--outline:hover {
-    background: var(--surface);
-    border-color: var(--accent);
-    transform: translateY(-2px);
 }
 
 /* Shared text */
