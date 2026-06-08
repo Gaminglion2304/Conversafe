@@ -373,6 +373,14 @@ h2 {
     padding: 12px 14px;
 }
 .compass-ctx-icon { font-size: 1.25rem; flex-shrink: 0; }
+
+/* Force icons to correct size */
+.compass-ctx-icon img {
+    width: 32px;      /* adjust 28–36px depending on look */
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
 .compass-ctx-card strong {
     display: block;
     font-size: 0.85rem;
@@ -475,6 +483,35 @@ h2 {
     flex-shrink: 0;
 }
 .cacc-ctx-val { color: var(--text-muted); line-height: 1.5; }
+
+/* ─── TEAM CONTACT BUTTONS LAYOUT ─── */
+.contact-btns--team {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+    .contact-btns--team {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .contact-btns--team .contact-btn--team {
+        flex: 1;
+        max-width: 280px;
+    }
+}
+
+/* ─── GLOBAL ICON SIZE FIX FOR COMPASS + ACCORDION ─── */
+.compass-ctx-icon img,
+.cacc-ctx-row img {
+    width: 32px;      /* adjust 28–36px depending on look */
+    height: auto;
+    object-fit: contain;
+    display: inline-block;
+    vertical-align: middle;
+}
 
 /* ─── TEAM SECTION ─── */
 .team-section { background: var(--surface); }
@@ -666,6 +703,31 @@ h2 {
     transition: background 0.2s;
 }
 .btn-outline:hover { background: rgba(91,155,213,0.1); }
+
+/* ─── TEAM IMAGE SIZE FIX ─── */
+.contact-btn--team .contact-btn-img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;     /* fills the box neatly */
+    border-radius: 50%;    /* circular profile look */
+    margin-bottom: 12px;
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* ─── INDIVIDUAL IMAGE POSITIONING ─── */
+
+/* Thorsten Guhr */
+.contact-btn--team img[alt="Thorsten Guhr"] {
+    transform: translateY(8px); /* moves image down */
+}
+
+/* Jason Mcqueen */
+.contact-btn--team img[alt="Jason Mcqueen"] {
+    transform: translateY(10px); /* moves image down slightly more */
+}
+
+
 
 /* ─── FOOTER ─── */
 footer {
