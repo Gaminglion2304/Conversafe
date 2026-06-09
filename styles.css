@@ -362,6 +362,8 @@ h2 {
     height: 100%;
     object-fit: contain;
     pointer-events: none;
+    transform-origin: center center;
+
 }
 
 /* Outer ring stays still */
@@ -373,6 +375,7 @@ h2 {
 .compass-symbol {
     z-index: 2;
     animation: spin-symbol 12s linear infinite;
+    transform-origin: center center; /* <<< THIS fixes the drifting */
 }
 
 /* Rotation animation */
