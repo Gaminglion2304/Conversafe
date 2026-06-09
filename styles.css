@@ -318,6 +318,14 @@ h2 {
     width: 100%;
     max-width: 420px;
 }
+
+/* Move compass upward to center visually */
+.compass-img-wrap {
+    position: relative;
+    top: 20px; /* adjust value until perfectly centered */
+    overflow: visible; /* ensures shadow isn’t clipped */
+}
+
 .compass-img-wrap img {
     width: 100%;
     height: auto;
@@ -325,6 +333,54 @@ h2 {
     border-radius: var(--radius-lg);
     box-shadow: 0 4px 24px rgba(20,60,120,0.1);
 }
+
+/* Remove outline and shadow from stacked compass images */
+.compass-stack img {
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+/* Prevent any rotating edges from showing */
+.compass-img-wrap {
+    overflow: hidden;
+}
+
+
+/* ─── STACKED COMPASS (outer ring + spinning symbol) ─── */
+.compass-stack {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1; /* keeps it perfectly square */
+}
+
+.compass-text,
+.compass-symbol {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* Outer ring stays still */
+.compass-text {
+    z-index: 1;
+}
+
+/* Inner symbol rotates */
+.compass-symbol {
+    z-index: 2;
+    animation: spin-symbol 12s linear infinite;
+}
+
+/* Rotation animation */
+@keyframes spin-symbol {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
 
 /* CTA button */
 .compass-cta-btn {
