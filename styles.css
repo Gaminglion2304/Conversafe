@@ -159,6 +159,11 @@ nav {
     background: var(--accent);
     color: #fff;
 }
+/* Change hamburger color when header is scrolled */
+.site-header.scrolled .hamburger span {
+    background: var(--text-muted); /* or var(--text) for darker */
+}
+
 
 @media (min-width: 769px) {
     /* Show desktop nav */
@@ -661,6 +666,27 @@ h2 {
 @media (max-width: 768px) {
     .compass-cta {
         padding: 0 16px;
+    }
+}
+
+/* Adjust compass image alignment for desktop and mobile */
+@media (min-width: 769px) {
+    .compass-left {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .compass-img-wrap {
+        max-width: 480px; /* slightly larger for desktop */
+        top: 0; /* remove upward offset */
+    }
+}
+
+@media (max-width: 768px) {
+    .compass-img-wrap {
+        max-width: 320px;
+        margin: 0 auto;
+        top: 10px;
     }
 }
 
