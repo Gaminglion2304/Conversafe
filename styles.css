@@ -160,6 +160,43 @@ nav {
     color: #fff;
 }
 
+@media (min-width: 769px) {
+    /* Show desktop nav */
+    nav .nav-links {
+        display: flex;
+    }
+
+    /* Hide mobile drawer */
+    .mobile-nav {
+        display: none !important;
+    }
+
+    /* Hide hamburger on desktop */
+    .hamburger {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hide desktop nav links */
+    nav .nav-links {
+        display: none;
+    }
+
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Mobile drawer hidden until opened */
+    .mobile-nav {
+        display: none;
+    }
+    .mobile-nav.open {
+        display: flex;
+    }
+}
+
 /* ─── HERO ─── */
 .hero {
     height: 100vh;
