@@ -30,6 +30,18 @@ body {
     top: 0; left: 0; right: 0;
     z-index: 100;
 }
+
+/* FIX: scrolled state — JS adds this class on scroll */
+.site-header.scrolled {
+    position: fixed;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 1px 12px rgba(20,60,120,0.08);
+}
+.site-header.scrolled .nav-links a { color: var(--text-muted); }
+.site-header.scrolled .nav-links a:hover { color: var(--text); }
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -54,6 +66,59 @@ nav {
     transition: color 0.2s;
 }
 .nav-links a:hover { color: #fff; }
+
+/* ─── HAMBURGER (mobile only) ─── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: var(--radius);
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+}
+.hamburger span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile drawer */
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0; right: 0;
+    background: rgba(15,25,45,0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding: 8px 0 16px;
+    z-index: 99;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 12px 24px;
+    transition: background 0.15s;
+}
+.mobile-nav a:hover { background: rgba(255,255,255,0.08); color: #fff; }
 
 /* ─── LANGUAGE TOGGLE ─── */
 .lang-toggle {
@@ -83,6 +148,17 @@ nav {
     color: #fff;
 }
 .lang-btn:hover:not(.active) { color: rgba(255,255,255,0.9); }
+
+/* Scrolled header lang toggle */
+.site-header.scrolled .lang-toggle {
+    background: rgba(26,47,78,0.1);
+    border-color: rgba(47,111,168,0.3);
+}
+.site-header.scrolled .lang-btn { color: var(--text-muted); }
+.site-header.scrolled .lang-btn.active {
+    background: var(--accent);
+    color: #fff;
+}
 
 /* ─── HERO ─── */
 .hero {
@@ -314,16 +390,14 @@ h2 {
     align-items: center;
     gap: 28px;
 }
+
+/* FIX: removed conflicting overflow:hidden / overflow:visible — use visible so shadow shows */
 .compass-img-wrap {
     width: 100%;
     max-width: 420px;
-}
-
-/* Move compass upward to center visually */
-.compass-img-wrap {
     position: relative;
-    top: 20px; /* adjust value until perfectly centered */
-    overflow: visible; /* ensures shadow isn’t clipped */
+    top: 20px;
+    overflow: visible;
 }
 
 .compass-img-wrap img {
@@ -341,17 +415,12 @@ h2 {
     background: transparent;
 }
 
-/* Prevent any rotating edges from showing */
-.compass-img-wrap {
-    overflow: hidden;
-}
-
-
 /* ─── STACKED COMPASS (outer ring + spinning symbol) ─── */
 .compass-stack {
     position: relative;
     width: 100%;
-    aspect-ratio: 1/1; /* keeps it perfectly square */
+    aspect-ratio: 1/1;
+    overflow: hidden;
 }
 
 .compass-text,
@@ -363,27 +432,20 @@ h2 {
     object-fit: contain;
     pointer-events: none;
     transform-origin: center center;
-
 }
 
-/* Outer ring stays still */
-.compass-text {
-    z-index: 1;
-}
+.compass-text { z-index: 1; }
 
-/* Inner symbol rotates */
 .compass-symbol {
     z-index: 2;
     animation: spin-symbol 12s linear infinite;
-    transform-origin: center center; /* <<< THIS fixes the drifting */
+    transform-origin: center center;
 }
 
-/* Rotation animation */
 @keyframes spin-symbol {
     from { transform: rotate(0deg); }
     to   { transform: rotate(360deg); }
 }
-
 
 /* CTA button */
 .compass-cta-btn {
@@ -433,9 +495,8 @@ h2 {
 }
 .compass-ctx-icon { font-size: 1.25rem; flex-shrink: 0; }
 
-/* Force icons to correct size */
 .compass-ctx-icon img {
-    width: 32px;      /* adjust 28–36px depending on look */
+    width: 32px;
     height: auto;
     object-fit: contain;
     display: block;
@@ -550,7 +611,6 @@ h2 {
     gap: 16px;
 }
 
-/* Desktop layout */
 @media (min-width: 768px) {
     .contact-btns--team {
         flex-direction: row;
@@ -565,7 +625,7 @@ h2 {
 /* ─── GLOBAL ICON SIZE FIX FOR COMPASS + ACCORDION ─── */
 .compass-ctx-icon img,
 .cacc-ctx-row img {
-    width: 32px;      /* adjust 28–36px depending on look */
+    width: 32px;
     height: auto;
     object-fit: contain;
     display: inline-block;
@@ -723,11 +783,13 @@ h2 {
     transform: translateY(-2px);
 }
 .contact-btn--team .contact-btn-img {
-    width: 52px; height: 52px;
-    object-fit: contain;
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 50%;
     margin-bottom: 12px;
     background: rgba(255,255,255,0.18);
-    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 .contact-btn--team .contact-btn-label {
     font-size: 0.92rem; font-weight: 600; color: #fff; margin-bottom: 4px;
@@ -743,6 +805,10 @@ h2 {
 .contact-btn-sub {
     font-size: 0.78rem; opacity: 0.8; font-weight: 400;
 }
+
+/* ─── INDIVIDUAL IMAGE POSITIONING ─── */
+.contact-btn--team img[alt="Thorsten Guhr"] { transform: translateY(8px); }
+.contact-btn--team img[alt="Jason Mcqueen"] { transform: translateY(10px); }
 
 .privacy-box {
     background: var(--surface-2);
@@ -762,31 +828,6 @@ h2 {
     transition: background 0.2s;
 }
 .btn-outline:hover { background: rgba(91,155,213,0.1); }
-
-/* ─── TEAM IMAGE SIZE FIX ─── */
-.contact-btn--team .contact-btn-img {
-    width: 72px;
-    height: 72px;
-    object-fit: cover;     /* fills the box neatly */
-    border-radius: 50%;    /* circular profile look */
-    margin-bottom: 12px;
-    background: rgba(255,255,255,0.18);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-/* ─── INDIVIDUAL IMAGE POSITIONING ─── */
-
-/* Thorsten Guhr */
-.contact-btn--team img[alt="Thorsten Guhr"] {
-    transform: translateY(8px); /* moves image down */
-}
-
-/* Jason Mcqueen */
-.contact-btn--team img[alt="Jason Mcqueen"] {
-    transform: translateY(10px); /* moves image down slightly more */
-}
-
-
 
 /* ─── FOOTER ─── */
 footer {
@@ -857,6 +898,7 @@ footer a:hover { color: #fff; }
 @media (max-width: 768px) {
     nav { padding: 18px 20px; }
     .nav-links { display: none; }
+    .hamburger { display: flex; }
     .hero-glass { padding: 36px 24px; }
     .team-grid { grid-template-columns: repeat(2, 1fr); }
     .team-card:last-child:nth-child(3n + 1) { grid-column: auto; }
@@ -865,7 +907,9 @@ footer a:hover { color: #fff; }
     .cacc-inner { padding-left: 44px; }
     .cacc-header { padding: 14px 20px; }
 }
+
 @media (max-width: 480px) {
     .team-grid { grid-template-columns: 1fr; }
     .cacc-inner { padding-left: 16px; }
+    .cacc-num { flex-shrink: 0; }
 }
