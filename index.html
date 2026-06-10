@@ -8,47 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* ─── LANGUAGE TOGGLE ─── */
-        .lang-toggle {
-            display: flex;
-            align-items: center;
-            gap: 0;
-            background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(255,255,255,0.25);
-            border-radius: 20px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-        .lang-btn {
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.65);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.8px;
-            padding: 5px 12px;
-            cursor: pointer;
-            transition: background 0.2s, color 0.2s;
-        }
-        .lang-btn.active {
-            background: rgba(255,255,255,0.22);
-            color: #fff;
-        }
-        .lang-btn:hover:not(.active) { color: rgba(255,255,255,0.9); }
-
-        /* Scrolled header state */
-        .site-header.scrolled .lang-toggle {
-            background: rgba(26,47,78,0.1);
-            border-color: rgba(47,111,168,0.3);
-        }
-        .site-header.scrolled .lang-btn { color: var(--text-muted); }
-        .site-header.scrolled .lang-btn.active {
-            background: var(--accent);
-            color: #fff;
-        }
-    </style>
 
     <script type="application/ld+json">
     {
@@ -89,10 +48,24 @@
             <li><a href="#faq" onclick="smoothScrollTo(event,'faq')" data-en="FAQ" data-de="FAQ">FAQ</a></li>
             <li><a href="#contact" onclick="smoothScrollTo(event,'contact')" data-en="Contact" data-de="Kontakt">Contact</a></li>
         </ul>
+        <!-- FIX: added hamburger button for mobile nav -->
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open navigation" aria-expanded="false" onclick="toggleMobileNav()">
+            <span></span><span></span><span></span>
+        </button>
         <div class="lang-toggle">
             <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
             <button class="lang-btn" onclick="setLang('de')" id="btn-de">DE</button>
+            <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
         </div>
+    </nav>
+    <!-- FIX: mobile nav drawer -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#selfty" onclick="smoothScrollTo(event,'selfty');closeMobileNav()" data-en="SELFTY" data-de="SELFTY">SELFTY</a>
+        <a href="#compass" onclick="smoothScrollTo(event,'compass');closeMobileNav()" data-en="The Compass" data-de="Der Kompass">The Compass</a>
+        <a href="#team" onclick="smoothScrollTo(event,'team');closeMobileNav()" data-en="Team" data-de="Team">Team</a>
+        <a href="#white-paper" onclick="smoothScrollTo(event,'white-paper');closeMobileNav()" data-en="White Paper" data-de="White Paper">White Paper</a>
+        <a href="#faq" onclick="smoothScrollTo(event,'faq');closeMobileNav()" data-en="FAQ" data-de="FAQ">FAQ</a>
+        <a href="#contact" onclick="smoothScrollTo(event,'contact');closeMobileNav()" data-en="Contact" data-de="Kontakt">Contact</a>
     </nav>
 </header>
 
@@ -106,11 +79,11 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-glass">
-        <h1 data-en="Let's talk <em>SELFTY</em>" data-de="Sprechen wir über <em>SELFTY</em>">Let's talk <em>SELFTY</em></h1>
-        <p class="hero-sub" data-en="The paradigm shift in personal safety — empowering individuals to protect themselves and those around them." data-de="Der Paradigmenwechsel in der persönlichen Sicherheit — Menschen befähigen, sich selbst und andere zu schützen.">The paradigm shift in personal safety — empowering individuals to protect themselves and those around them.</p>
+        <h1 data-en="Let's talk <em>SELFTY</em>" data-de="Sprechen wir über <em>SELFTY</em>" data-es="Hablemos de <em>SELFTY</em>">Let's talk <em>SELFTY</em></h1>
+        <p class="hero-sub" data-en="The paradigm shift in personal safety — empowering individuals to protect themselves and those around them." data-de="Der Paradigmenwechsel in der persönlichen Sicherheit — Menschen befähigen, sich selbst und andere zu schützen." data-es="El cambio de paradigma en seguridad personal — capacitando a las personas para protegerse a sí mismas y a quienes les rodean.">The paradigm shift in personal safety — empowering individuals to protect themselves and those around them.</p>
         <a href="#selfty" class="hero-cta" onclick="smoothScrollTo(event,'selfty')">
             <span class="dot"></span>
-            <span data-en="Discover SELFTY" data-de="SELFTY entdecken">Discover SELFTY</span>
+            <span data-en="Discover SELFTY" data-de="SELFTY entdecken" data-es="Descubrir SELFTY">Discover SELFTY</span>
         </a>
     </div>
     <div class="slide-indicators">
@@ -125,51 +98,51 @@
 <section class="selfty-intro" id="selfty">
     <div class="container-narrow">
         <div class="answer-first reveal">
-            <p class="answer-label" data-en="In short" data-de="Kurz gefasst">In short</p>
-            <p class="answer-text" data-en="SELFTY is a neuroscience-based behavioural safety programme. It reduces human error at work, on the road, and at home by changing the habits and perception mechanisms that cause accidents. No new management system. No reporting burden. Lasting results through maturity-level-oriented leadership and adult learning." data-de="SELFTY ist ein neurowissenschaftlich fundiertes Verhaltenssicherheitsprogramm. Es reduziert menschliche Fehler bei der Arbeit, im Straßenverkehr und zu Hause, indem es die Gewohnheiten und Wahrnehmungsmechanismen verändert, die Unfälle verursachen. Kein neues Managementsystem. Keine Berichtspflichten. Nachhaltige Ergebnisse durch reifegradbewusste Führung und Erwachsenenlernen.">SELFTY is a neuroscience-based behavioural safety programme. It reduces human error at work, on the road, and at home by changing the habits and perception mechanisms that cause accidents. No new management system. No reporting burden. Lasting results through maturity-level-oriented leadership and adult learning.</p>
+            <p class="answer-label" data-en="In short" data-de="Kurz gefasst" data-es="En resumen">In short</p>
+            <p class="answer-text" data-en="SELFTY is a neuroscience-based behavioural safety programme. It reduces human error at work, on the road, and at home by changing the habits and perception mechanisms that cause accidents. No new management system. No reporting burden. Lasting results through maturity-level-oriented leadership and adult learning." data-de="SELFTY ist ein neurowissenschaftlich fundiertes Verhaltenssicherheitsprogramm. Es reduziert menschliche Fehler bei der Arbeit, im Straßenverkehr und zu Hause, indem es die Gewohnheiten und Wahrnehmungsmechanismen verändert, die Unfälle verursachen. Kein neues Managementsystem. Keine Berichtspflichten. Nachhaltige Ergebnisse durch reifegradbewusste Führung und Erwachsenenlernen." data-es="SELFTY es un programa de seguridad conductual basado en neurociencia. Reduce el error humano en el trabajo, en la carretera y en el hogar modificando los hábitos y mecanismos de percepción que causan accidentes. Sin nuevo sistema de gestión. Sin cargas de reporte. Resultados duraderos mediante liderazgo orientado al nivel de madurez y aprendizaje adulto.">SELFTY is a neuroscience-based behavioural safety programme. It reduces human error at work, on the road, and at home by changing the habits and perception mechanisms that cause accidents. No new management system. No reporting burden. Lasting results through maturity-level-oriented leadership and adult learning.</p>
         </div>
 
-        <h2 class="reveal" id="what-is-selfty" data-en="What is SELFTY?" data-de="Was ist SELFTY?">What is SELFTY?</h2>
-        <p class="reveal" data-en="SELFTY combines the words <strong>SELF</strong> and <strong>SAFETY</strong> — a new term for the paradigm shift from compliance-first thinking to personal ownership of safe behaviour." data-de="SELFTY verbindet die Wörter <strong>SELF</strong> (Selbst) und <strong>SAFETY</strong> (Sicherheit) — ein neuer Begriff für den Paradigmenwechsel vom complianceorientierten Denken hin zur persönlichen Verantwortung für sicheres Verhalten.">SELFTY combines the words <strong>SELF</strong> and <strong>SAFETY</strong> — a new term for the paradigm shift from compliance-first thinking to personal ownership of safe behaviour.</p>
-        <p class="reveal" data-en="Its most obvious application is occupational health and safety. But the potential extends further: strategic personnel development, performance management, and culture change." data-de="Die offensichtlichste Anwendung ist der Arbeitsschutz. Das Potenzial reicht jedoch weiter: strategische Personalentwicklung, Leistungsmanagement und Kulturwandel.">Its most obvious application is occupational health and safety. But the potential extends further: strategic personnel development, performance management, and culture change.</p>
+        <h2 class="reveal" id="what-is-selfty" data-en="What is SELFTY?" data-de="Was ist SELFTY?" data-es="¿Qué es SELFTY?">What is SELFTY?</h2>
+        <p class="reveal" data-en="SELFTY combines the words <strong>SELF</strong> and <strong>SAFETY</strong> — a new term for the paradigm shift from compliance-first thinking to personal ownership of safe behaviour." data-de="SELFTY verbindet die Wörter <strong>SELF</strong> (Selbst) und <strong>SAFETY</strong> (Sicherheit) — ein neuer Begriff für den Paradigmenwechsel vom complianceorientierten Denken hin zur persönlichen Verantwortung für sicheres Verhalten." data-es="SELFTY combina las palabras <strong>SELF</strong> (uno mismo) y <strong>SAFETY</strong> (seguridad) — un nuevo término para el cambio de paradigma del pensamiento orientado al cumplimiento hacia la responsabilidad personal del comportamiento seguro.">SELFTY combines the words <strong>SELF</strong> and <strong>SAFETY</strong> — a new term for the paradigm shift from compliance-first thinking to personal ownership of safe behaviour.</p>
+        <p class="reveal" data-en="Its most obvious application is occupational health and safety. But the potential extends further: strategic personnel development, performance management, and culture change." data-de="Die offensichtlichste Anwendung ist der Arbeitsschutz. Das Potenzial reicht jedoch weiter: strategische Personalentwicklung, Leistungsmanagement und Kulturwandel." data-es="Su aplicación más obvia es la salud y seguridad ocupacional. Pero el potencial va más allá: desarrollo estratégico de personal, gestión del rendimiento y cambio cultural.">Its most obvious application is occupational health and safety. But the potential extends further: strategic personnel development, performance management, and culture change.</p>
 
         <div class="accordion-wrap reveal">
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="The core problem: human error" data-de="Das Kernproblem: menschliches Versagen">The core problem: human error</span>
+                    <span data-en="The core problem: human error" data-de="Das Kernproblem: menschliches Versagen" data-es="El problema central: el error humano">The core problem: human error</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body">
                     <div class="acc-body-inner">
-                        <p data-en="Human error drives most disruptions in the workplace — delays, rework, communication failures, lost orders, and financial setbacks that are hard to fully quantify." data-de="Menschliches Versagen verursacht die meisten Störungen am Arbeitsplatz — Verzögerungen, Nacharbeit, Kommunikationsfehler, verlorene Aufträge und finanzielle Einbußen, die schwer vollständig zu beziffern sind.">Human error drives most disruptions in the workplace — delays, rework, communication failures, lost orders, and financial setbacks that are hard to fully quantify.</p>
-                        <p data-en="Health-related damage is harder to define. Accidents don't stop at the factory gates. Injuries at work affect home life, and health issues outside work affect performance inside it. SELFTY addresses both." data-de="Gesundheitsschäden sind schwerer zu erfassen. Unfälle machen nicht an den Werkstoren halt. Verletzungen bei der Arbeit beeinträchtigen das Privatleben, und gesundheitliche Probleme außerhalb der Arbeit beeinflussen die berufliche Leistung. SELFTY adressiert beides.">Health-related damage is harder to define. Accidents don't stop at the factory gates. Injuries at work affect home life, and health issues outside work affect performance inside it. SELFTY addresses both.</p>
+                        <p data-en="Human error drives most disruptions in the workplace — delays, rework, communication failures, lost orders, and financial setbacks that are hard to fully quantify." data-de="Menschliches Versagen verursacht die meisten Störungen am Arbeitsplatz — Verzögerungen, Nacharbeit, Kommunikationsfehler, verlorene Aufträge und finanzielle Einbußen, die schwer vollständig zu beziffern sind." data-es="El error humano provoca la mayoría de las interrupciones en el lugar de trabajo — retrasos, retrabajos, fallos de comunicación, pedidos perdidos y contratiempos financieros difíciles de cuantificar.">Human error drives most disruptions in the workplace — delays, rework, communication failures, lost orders, and financial setbacks that are hard to fully quantify.</p>
+                        <p data-en="Health-related damage is harder to define. Accidents don't stop at the factory gates. Injuries at work affect home life, and health issues outside work affect performance inside it. SELFTY addresses both." data-de="Gesundheitsschäden sind schwerer zu erfassen. Unfälle machen nicht an den Werkstoren halt. Verletzungen bei der Arbeit beeinträchtigen das Privatleben, und gesundheitliche Probleme außerhalb der Arbeit beeinflussen die berufliche Leistung. SELFTY adressiert beides." data-es="El daño relacionado con la salud es más difícil de definir. Los accidentes no se detienen en las puertas de la fábrica. Las lesiones en el trabajo afectan la vida en el hogar, y los problemas de salud fuera del trabajo afectan el rendimiento dentro de él. SELFTY aborda ambos.">Health-related damage is harder to define. Accidents don't stop at the factory gates. Injuries at work affect home life, and health issues outside work affect performance inside it. SELFTY addresses both.</p>
                     </div>
                 </div>
             </div>
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="How SELFTY works" data-de="Wie SELFTY funktioniert">How SELFTY works</span>
+                    <span data-en="How SELFTY works" data-de="Wie SELFTY funktioniert" data-es="Cómo funciona SELFTY">How SELFTY works</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body">
                     <div class="acc-body-inner">
-                        <p data-en="SELFTY is systemic and neuroscientifically grounded. It complements the technical dimension of safety with the human dimension — and rapid advances in neuroscience continuously reveal new potential here." data-de="SELFTY ist systemisch und neurowissenschaftlich fundiert. Es ergänzt die technische Dimension der Sicherheit um die menschliche Dimension — und die rasanten Fortschritte in der Neurowissenschaft erschließen hier kontinuierlich neues Potenzial.">SELFTY is systemic and neuroscientifically grounded. It complements the technical dimension of safety with the human dimension — and rapid advances in neuroscience continuously reveal new potential here.</p>
-                        <p data-en="In practice, SELFTY builds competencies that lead to safer behaviour through better understanding of one's own perception, processing, and reaction mechanisms." data-de="In der Praxis baut SELFTY Kompetenzen auf, die durch ein besseres Verständnis der eigenen Wahrnehmungs-, Verarbeitungs- und Reaktionsmechanismen zu sichererem Verhalten führen.">In practice, SELFTY builds competencies that lead to safer behaviour through better understanding of one's own perception, processing, and reaction mechanisms.</p>
-                        <p data-en="Attention-limiting factors — hectic pace, multitasking, frustration, fatigue, routine, and substance use — are recognised and mitigated through self-organisation and personal responsibility." data-de="Aufmerksamkeitsbegrenzende Faktoren — Hektik, Multitasking, Frustration, Müdigkeit, Routine und Substanzkonsum — werden durch Selbstorganisation und persönliche Verantwortung erkannt und gemindert.">Attention-limiting factors — hectic pace, multitasking, frustration, fatigue, routine, and substance use — are recognised and mitigated through self-organisation and personal responsibility.</p>
-                        <p data-en="SELFTY is a bottom-up approach to individual maturity. It only succeeds when a coalition of leaders simultaneously creates the top-down conditions for it to take hold." data-de="SELFTY ist ein Bottom-up-Ansatz zur individuellen Reife. Er gelingt nur, wenn eine Führungskoalition gleichzeitig die Top-down-Bedingungen dafür schafft, dass er Wurzeln schlägt.">SELFTY is a bottom-up approach to individual maturity. It only succeeds when a coalition of leaders simultaneously creates the top-down conditions for it to take hold.</p>
+                        <p data-en="SELFTY is systemic and neuroscientifically grounded. It complements the technical dimension of safety with the human dimension — and rapid advances in neuroscience continuously reveal new potential here." data-de="SELFTY ist systemisch und neurowissenschaftlich fundiert. Es ergänzt die technische Dimension der Sicherheit um die menschliche Dimension — und die rasanten Fortschritte in der Neurowissenschaft erschließen hier kontinuierlich neues Potenzial." data-es="SELFTY es sistémico y con base neurocientífica. Complementa la dimensión técnica de la seguridad con la dimensión humana — y los rápidos avances en neurociencia revelan continuamente nuevo potencial aquí.">SELFTY is systemic and neuroscientifically grounded. It complements the technical dimension of safety with the human dimension — and rapid advances in neuroscience continuously reveal new potential here.</p>
+                        <p data-en="In practice, SELFTY builds competencies that lead to safer behaviour through better understanding of one's own perception, processing, and reaction mechanisms." data-de="In der Praxis baut SELFTY Kompetenzen auf, die durch ein besseres Verständnis der eigenen Wahrnehmungs-, Verarbeitungs- und Reaktionsmechanismen zu sichererem Verhalten führen." data-es="En la práctica, SELFTY desarrolla competencias que conducen a comportamientos más seguros mediante una mejor comprensión de los propios mecanismos de percepción, procesamiento y reacción.">In practice, SELFTY builds competencies that lead to safer behaviour through better understanding of one's own perception, processing, and reaction mechanisms.</p>
+                        <p data-en="Attention-limiting factors — hectic pace, multitasking, frustration, fatigue, routine, and substance use — are recognised and mitigated through self-organisation and personal responsibility." data-de="Aufmerksamkeitsbegrenzende Faktoren — Hektik, Multitasking, Frustration, Müdigkeit, Routine und Substanzkonsum — werden durch Selbstorganisation und persönliche Verantwortung erkannt und gemindert." data-es="Los factores que limitan la atención — el ritmo frenético, la multitarea, la frustración, la fatiga, la rutina y el uso de sustancias — se reconocen y mitigan mediante la autoorganización y la responsabilidad personal.">Attention-limiting factors — hectic pace, multitasking, frustration, fatigue, routine, and substance use — are recognised and mitigated through self-organisation and personal responsibility.</p>
+                        <p data-en="SELFTY is a bottom-up approach to individual maturity. It only succeeds when a coalition of leaders simultaneously creates the top-down conditions for it to take hold." data-de="SELFTY ist ein Bottom-up-Ansatz zur individuellen Reife. Er gelingt nur, wenn eine Führungskoalition gleichzeitig die Top-down-Bedingungen dafür schafft, dass er Wurzeln schlägt." data-es="SELFTY es un enfoque ascendente hacia la madurez individual. Solo tiene éxito cuando una coalición de líderes crea simultáneamente las condiciones descendentes para que arraigue.">SELFTY is a bottom-up approach to individual maturity. It only succeeds when a coalition of leaders simultaneously creates the top-down conditions for it to take hold.</p>
                     </div>
                 </div>
             </div>
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="What this means for your company" data-de="Was das für Ihr Unternehmen bedeutet">What this means for your company</span>
+                    <span data-en="What this means for your company" data-de="Was das für Ihr Unternehmen bedeutet" data-es="Qué significa esto para su empresa">What this means for your company</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body">
                     <div class="acc-body-inner">
-                        <p data-en="SELFTY builds competencies that are hard for competitors to replicate. Once acquired, they shape behaviour for a lifetime — both inside and outside the workplace." data-de="SELFTY baut Kompetenzen auf, die für Wettbewerber schwer zu replizieren sind. Einmal erworben, prägen sie das Verhalten ein Leben lang — sowohl am Arbeitsplatz als auch außerhalb.">SELFTY builds competencies that are hard for competitors to replicate. Once acquired, they shape behaviour for a lifetime — both inside and outside the workplace.</p>
-                        <p data-en="Integration happens without a dedicated management system, without formalities, without reporting, and without PowerPoint-heavy training sessions. It is an emergent development of individuals through maturity-level-oriented leadership." data-de="Die Integration erfolgt ohne ein eigenes Managementsystem, ohne Formalitäten, ohne Berichtspflichten und ohne PowerPoint-lastige Trainingseinheiten. Es ist eine emergente Entwicklung von Einzelpersonen durch reifegradbewusste Führung.">Integration happens without a dedicated management system, without formalities, without reporting, and without PowerPoint-heavy training sessions. It is an emergent development of individuals through maturity-level-oriented leadership.</p>
-                        <p data-en="Extensive use of storytelling drives lasting behavioural change through emotional engagement and autonomous decision-making — not compliance anxiety." data-de="Der umfangreiche Einsatz von Storytelling treibt nachhaltigen Verhaltens­wandel durch emotionale Einbindung und autonome Entscheidungsfindung voran — nicht durch Compliance-Angst.">Extensive use of storytelling drives lasting behavioural change through emotional engagement and autonomous decision-making — not compliance anxiety.</p>
+                        <p data-en="SELFTY builds competencies that are hard for competitors to replicate. Once acquired, they shape behaviour for a lifetime — both inside and outside the workplace." data-de="SELFTY baut Kompetenzen auf, die für Wettbewerber schwer zu replizieren sind. Einmal erworben, prägen sie das Verhalten ein Leben lang — sowohl am Arbeitsplatz als auch außerhalb." data-es="SELFTY desarrolla competencias difíciles de replicar para los competidores. Una vez adquiridas, moldean el comportamiento de por vida — tanto dentro como fuera del lugar de trabajo.">SELFTY builds competencies that are hard for competitors to replicate. Once acquired, they shape behaviour for a lifetime — both inside and outside the workplace.</p>
+                        <p data-en="Integration happens without a dedicated management system, without formalities, without reporting, and without PowerPoint-heavy training sessions. It is an emergent development of individuals through maturity-level-oriented leadership." data-de="Die Integration erfolgt ohne ein eigenes Managementsystem, ohne Formalitäten, ohne Berichtspflichten und ohne PowerPoint-lastige Trainingseinheiten. Es ist eine emergente Entwicklung von Einzelpersonen durch reifegradbewusste Führung." data-es="La integración ocurre sin un sistema de gestión dedicado, sin formalidades, sin informes y sin sesiones de formación cargadas de PowerPoint. Es un desarrollo emergente de los individuos a través de un liderazgo orientado al nivel de madurez.">Integration happens without a dedicated management system, without formalities, without reporting, and without PowerPoint-heavy training sessions. It is an emergent development of individuals through maturity-level-oriented leadership.</p>
+                        <p data-en="Extensive use of storytelling drives lasting behavioural change through emotional engagement and autonomous decision-making — not compliance anxiety." data-de="Der umfangreiche Einsatz von Storytelling treibt nachhaltigen Verhaltens­wandel durch emotionale Einbindung und autonome Entscheidungsfindung voran — nicht durch Compliance-Angst." data-es="El uso extensivo de la narrativa impulsa un cambio de comportamiento duradero a través del compromiso emocional y la toma de decisiones autónoma — no a través de la ansiedad por el cumplimiento.">Extensive use of storytelling drives lasting behavioural change through emotional engagement and autonomous decision-making — not compliance anxiety.</p>
                     </div>
                 </div>
             </div>
@@ -184,42 +157,42 @@
         <!-- LEFT: compass image + CTA -->
         <div class="compass-left reveal">
             <div class="compass-img-wrap">
-    <div class="compass-stack">
-        <img src="Images/Text 2.png" class="compass-text" alt="Compass Outer Ring">
-        <img src="Images/Compass SY.png" class="compass-symbol" alt="Compass Inner Symbol">
-    </div>
-</div>
+                <div class="compass-stack">
+                    <img src="Images/Text 2.png" class="compass-text" alt="Compass Outer Ring">
+                    <img src="Images/Compass SY.png" class="compass-symbol" alt="Compass Inner Symbol">
+                </div>
+            </div>
 
             <button class="compass-cta-btn" id="compassCtaBtn" onclick="toggleCompassAccordion()">
-                <span data-en="Explore the 8 Competencies" data-de="Die 8 Kompetenzen erkunden">Explore the 8 Competencies</span> <span class="compass-arrow">›</span>
+                <span data-en="Explore the 8 Competencies" data-de="Die 8 Kompetenzen erkunden" data-es="Explorar las 8 Competencias">Explore the 8 Competencies</span> <span class="compass-arrow">›</span>
             </button>
         </div>
 
         <!-- RIGHT: intro text + context cards -->
         <div class="compass-right reveal">
-            <h2 style="text-align:left; margin-bottom:8px;" data-en="The SELFTY Compass" data-de="Der SELFTY-Kompass">The SELFTY Compass</h2>
-            <p class="compass-tagline" data-en="Your Inner Navigation System" data-de="Ihr inneres Navigationssystem">Your Inner Navigation System</p>
-            <p class="compass-desc" data-en="An 8-competency framework that helps people recognise their internal state and adjust behaviour — across <strong>Work</strong>, <strong>Street</strong>, and <strong>Home</strong>." data-de="Ein 8-Kompetenzen-Rahmenwerk, das Menschen hilft, ihren inneren Zustand wahrzunehmen und ihr Verhalten anzupassen — in den Bereichen <strong>Arbeit</strong>, <strong>Straße</strong> und <strong>Zuhause</strong>.">An 8-competency framework that helps people recognise their internal state and adjust behaviour — across <strong>Work</strong>, <strong>Street</strong>, and <strong>Home</strong>.</p>
+            <h2 style="text-align:left; margin-bottom:8px;" data-en="The SELFTY Compass" data-de="Der SELFTY-Kompass" data-es="La Brújula SELFTY">The SELFTY Compass</h2>
+            <p class="compass-tagline" data-en="Your Inner Navigation System" data-de="Ihr inneres Navigationssystem" data-es="Tu sistema de navegación interior">Your Inner Navigation System</p>
+            <p class="compass-desc" data-en="An 8-competency framework that helps people recognise their internal state and adjust behaviour — across <strong>Work</strong>, <strong>Street</strong>, and <strong>Home</strong>." data-de="Ein 8-Kompetenzen-Rahmenwerk, das Menschen hilft, ihren inneren Zustand wahrzunehmen und ihr Verhalten anzupassen — in den Bereichen <strong>Arbeit</strong>, <strong>Straße</strong> und <strong>Zuhause</strong>." data-es="Un marco de 8 competencias que ayuda a las personas a reconocer su estado interno y ajustar su comportamiento — en los contextos de <strong>Trabajo</strong>, <strong>Calle</strong> y <strong>Hogar</strong>.">An 8-competency framework that helps people recognise their internal state and adjust behaviour — across <strong>Work</strong>, <strong>Street</strong>, and <strong>Home</strong>.</p>
             <div class="compass-ctx-cards">
                 <div class="compass-ctx-card">
                     <span class="compass-ctx-icon"><img src="Images/Work Icon.png" alt="Work"></span>
                     <div>
-                        <strong data-en="Work" data-de="Arbeit">Work</strong>
-                        <span data-en="Reduce operational risk" data-de="Betriebliches Risiko reduzieren">Reduce operational risk</span>
+                        <strong data-en="Work" data-de="Arbeit" data-es="Trabajo">Work</strong>
+                        <span data-en="Reduce operational risk" data-de="Betriebliches Risiko reduzieren" data-es="Reducir el riesgo operacional">Reduce operational risk</span>
                     </div>
                 </div>
                 <div class="compass-ctx-card">
                     <span class="compass-ctx-icon"><img src="Images/Car Icon.png" alt="Street"></span>
                     <div>
-                        <strong data-en="Street" data-de="Straße">Street</strong>
-                        <span data-en="Prevent distraction &amp; fatigue" data-de="Ablenkung &amp; Erschöpfung vorbeugen">Prevent distraction &amp; fatigue</span>
+                        <strong data-en="Street" data-de="Straße" data-es="Calle">Street</strong>
+                        <span data-en="Prevent distraction &amp; fatigue" data-de="Ablenkung &amp; Erschöpfung vorbeugen" data-es="Prevenir distracciones y fatiga">Prevent distraction &amp; fatigue</span>
                     </div>
                 </div>
                 <div class="compass-ctx-card">
                     <span class="compass-ctx-icon"><img src="Images/Home Icon.png" alt="Home"></span>
                     <div>
-                        <strong data-en="Home" data-de="Zuhause">Home</strong>
-                        <span data-en="Avoid everyday accidents" data-de="Alltägliche Unfälle vermeiden">Avoid everyday accidents</span>
+                        <strong data-en="Home" data-de="Zuhause" data-es="Hogar">Home</strong>
+                        <span data-en="Avoid everyday accidents" data-de="Alltägliche Unfälle vermeiden" data-es="Evitar accidentes cotidianos">Avoid everyday accidents</span>
                     </div>
                 </div>
             </div>
@@ -237,8 +210,8 @@
 <!-- ─── TEAM ─── -->
 <section class="team-section" id="team">
     <div class="container">
-        <h2 class="reveal" data-en="A Partnership of Experienced Practitioners" data-de="Eine Partnerschaft erfahrener Praktiker">A Partnership of Experienced Practitioners</h2>
-        <p class="section-intro reveal" data-en="Seven specialists in safety, neuroscience, coaching, and training management. We deliver not by size, but by strength — sustained, trust-based relationships with every client." data-de="Sieben Spezialisten in den Bereichen Sicherheit, Neurowissenschaft, Coaching und Trainingsmanagement. Wir liefern nicht durch Größe, sondern durch Stärke — nachhaltige, vertrauensbasierte Beziehungen mit jedem Kunden.">Seven specialists in safety, neuroscience, coaching, and training management. We deliver not by size, but by strength — sustained, trust-based relationships with every client.</p>
+        <h2 class="reveal" data-en="A Partnership of Experienced Practitioners" data-de="Eine Partnerschaft erfahrener Praktiker" data-es="Una asociación de profesionales experimentados">A Partnership of Experienced Practitioners</h2>
+        <p class="section-intro reveal" data-en="Seven specialists in safety, neuroscience, coaching, and training management. We deliver not by size, but by strength — sustained, trust-based relationships with every client." data-de="Sieben Spezialisten in den Bereichen Sicherheit, Neurowissenschaft, Coaching und Trainingsmanagement. Wir liefern nicht durch Größe, sondern durch Stärke — nachhaltige, vertrauensbasierte Beziehungen mit jedem Kunden." data-es="Siete especialistas en seguridad, neurociencia, coaching y gestión de formación. Entregamos no por tamaño, sino por fortaleza — relaciones sostenidas y basadas en la confianza con cada cliente.">Seven specialists in safety, neuroscience, coaching, and training management. We deliver not by size, but by strength — sustained, trust-based relationships with every client.</p>
     </div>
 
     <div class="team-wave-wrap">
@@ -262,8 +235,8 @@
                 <div class="team-card" style="--photo-pos: center;">
                     <img src="Images/Robin S.jpg" alt="Robin Stowell">
                     <h4>Robin Stowell</h4>
-                    <p class="team-role" data-en="Systems Thinking Safety Practitioner" data-de="Systemdenken-Sicherheitspraktiker">Systems Thinking Safety Practitioner</p>
-                    <p class="team-bio" data-en="Over three decades in complex maritime, renewable energy, and industrial environments. Chartered Safety &amp; Health Practitioner since 2006, and Fellow of the Institute of Marine Engineering Science and Technology." data-de="Über drei Jahrzehnte in komplexen maritimen, erneuerbaren Energie- und Industrieumgebungen. Chartered Safety &amp; Health Practitioner seit 2006 und Fellow des Institute of Marine Engineering Science and Technology.">Over three decades in complex maritime, renewable energy, and industrial environments. Chartered Safety &amp; Health Practitioner since 2006, and Fellow of the Institute of Marine Engineering Science and Technology.</p>
+                    <p class="team-role" data-en="Systems Thinking Safety Practitioner" data-de="Systemdenken-Sicherheitspraktiker" data-es="Profesional en Seguridad y Pensamiento Sistémico">Systems Thinking Safety Practitioner</p>
+                    <p class="team-bio" data-en="Over three decades in complex maritime, renewable energy, and industrial environments. Chartered Safety &amp; Health Practitioner since 2006, and Fellow of the Institute of Marine Engineering Science and Technology." data-de="Über drei Jahrzehnte in komplexen maritimen, erneuerbaren Energie- und Industrieumgebungen. Chartered Safety &amp; Health Practitioner seit 2006 und Fellow des Institute of Marine Engineering Science and Technology." data-es="Más de tres décadas en entornos marítimos, de energía renovable e industriales complejos. Chartered Safety &amp; Health Practitioner desde 2006 y Fellow del Instituto de Ingeniería Marina, Ciencia y Tecnología.">Over three decades in complex maritime, renewable energy, and industrial environments. Chartered Safety &amp; Health Practitioner since 2006, and Fellow of the Institute of Marine Engineering Science and Technology.</p>
                     <a href="https://www.linkedin.com/in/robin-stowell-46a65515/" class="team-li-link" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24"><path d="M19.7,3H4.3C3.582,3,3,3.582,3,4.3v15.4C3,20.418,3.582,21,4.3,21h15.4c0.718,0,1.3-0.582,1.3-1.3V4.3 C21,3.582,20.418,3,19.7,3z M8.339,18.338H5.667v-8.59h2.672V18.338z M7.004,8.574c-0.857,0-1.549-0.694-1.549-1.548 c0-0.855,0.691-1.548,1.549-1.548c0.854,0,1.547,0.694,1.547,1.548C8.551,7.881,7.858,8.574,7.004,8.574z M18.339,18.338h-2.669 v-4.177c0-0.996-0.017-2.278-1.387-2.278c-1.389,0-1.601,1.086-1.601,2.206v4.249h-2.667v-8.59h2.559v1.174h0.037 c0.356-0.675,1.227-1.387,2.526-1.387c2.703,0,3.203,1.779,3.203,4.092V18.338z"/></svg>
                         LinkedIn
@@ -273,8 +246,8 @@
                 <div class="team-card" style="--photo-pos: top;">
                     <img src="Images/TG HEADSHOT1.jpg" alt="Thorsten Guhr">
                     <h4>Thorsten Guhr</h4>
-                    <p class="team-role" data-en="Management Coach" data-de="Management-Coach">Management Coach</p>
-                    <p class="team-bio" data-en="Management consultant, business coach, and trainer for high-performing companies since 2011. Specialist in applying neuroscience insights to human error, safety, and performance." data-de="Unternehmensberater, Business-Coach und Trainer für leistungsstarke Unternehmen seit 2011. Spezialist für die Anwendung neurowissenschaftlicher Erkenntnisse auf menschliches Versagen, Sicherheit und Leistung.">Management consultant, business coach, and trainer for high-performing companies since 2011. Specialist in applying neuroscience insights to human error, safety, and performance.</p>
+                    <p class="team-role" data-en="Management Coach" data-de="Management-Coach" data-es="Coach de Gestión">Management Coach</p>
+                    <p class="team-bio" data-en="Management consultant, business coach, and trainer for high-performing companies since 2011. Specialist in applying neuroscience insights to human error, safety, and performance." data-de="Unternehmensberater, Business-Coach und Trainer für leistungsstarke Unternehmen seit 2011. Spezialist für die Anwendung neurowissenschaftlicher Erkenntnisse auf menschliches Versagen, Sicherheit und Leistung." data-es="Consultor de gestión, coach empresarial y formador para empresas de alto rendimiento desde 2011. Especialista en aplicar conocimientos de neurociencia al error humano, la seguridad y el rendimiento.">Management consultant, business coach, and trainer for high-performing companies since 2011. Specialist in applying neuroscience insights to human error, safety, and performance.</p>
                     <a href="https://www.linkedin.com/in/thorsten-guhr-634b2116/" class="team-li-link" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24"><path d="M19.7,3H4.3C3.582,3,3,3.582,3,4.3v15.4C3,20.418,3.582,21,4.3,21h15.4c0.718,0,1.3-0.582,1.3-1.3V4.3 C21,3.582,20.418,3,19.7,3z M8.339,18.338H5.667v-8.59h2.672V18.338z M7.004,8.574c-0.857,0-1.549-0.694-1.549-1.548 c0-0.855,0.691-1.548,1.549-1.548c0.854,0,1.547,0.694,1.547,1.548C8.551,7.881,7.858,8.574,7.004,8.574z M18.339,18.338h-2.669 v-4.177c0-0.996-0.017-2.278-1.387-2.278c-1.389,0-1.601,1.086-1.601,2.206v4.249h-2.667v-8.59h2.559v1.174h0.037 c0.356-0.675,1.227-1.387,2.526-1.387c2.703,0,3.203,1.779,3.203,4.092V18.338z"/></svg>
                         LinkedIn
@@ -284,8 +257,8 @@
                 <div class="team-card" style="--photo-pos: top;">
                     <img src="Images/JM HEADSHOT1.jpg" alt="Jason Mcqueen">
                     <h4>Jason Mcqueen</h4>
-                    <p class="team-role" data-en="Training Manager" data-de="Leiter Training">Training Manager</p>
-                    <p class="team-bio" data-en="25 years delivering organisation-wide training interventions, bespoke training, and the human component of change management programmes for clients across the globe." data-de="25 Jahre Erfahrung in der Durchführung unternehmensweiter Trainingsinterventionen, maßgeschneiderter Schulungen und des menschlichen Aspekts von Change-Management-Programmen für Kunden weltweit.">25 years delivering organisation-wide training interventions, bespoke training, and the human component of change management programmes for clients across the globe.</p>
+                    <p class="team-role" data-en="Training Manager" data-de="Leiter Training" data-es="Director de Formación">Training Manager</p>
+                    <p class="team-bio" data-en="25 years delivering organisation-wide training interventions, bespoke training, and the human component of change management programmes for clients across the globe." data-de="25 Jahre Erfahrung in der Durchführung unternehmensweiter Trainingsinterventionen, maßgeschneiderter Schulungen und des menschlichen Aspekts von Change-Management-Programmen für Kunden weltweit." data-es="25 años ofreciendo intervenciones de formación a escala organizacional, formación a medida y el componente humano de programas de gestión del cambio para clientes en todo el mundo.">25 years delivering organisation-wide training interventions, bespoke training, and the human component of change management programmes for clients across the globe.</p>
                     <a href="https://www.linkedin.com/in/jason-mcqueen-85315b50/" class="team-li-link" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24"><path d="M19.7,3H4.3C3.582,3,3,3.582,3,4.3v15.4C3,20.418,3.582,21,4.3,21h15.4c0.718,0,1.3-0.582,1.3-1.3V4.3 C21,3.582,20.418,3,19.7,3z M8.339,18.338H5.667v-8.59h2.672V18.338z M7.004,8.574c-0.857,0-1.549-0.694-1.549-1.548 c0-0.855,0.691-1.548,1.549-1.548c0.854,0,1.547,0.694,1.547,1.548C8.551,7.881,7.858,8.574,7.004,8.574z M18.339,18.338h-2.669 v-4.177c0-0.996-0.017-2.278-1.387-2.278c-1.389,0-1.601,1.086-1.601,2.206v4.249h-2.667v-8.59h2.559v1.174h0.037 c0.356-0.675,1.227-1.387,2.526-1.387c2.703,0,3.203,1.779,3.203,4.092V18.338z"/></svg>
                         LinkedIn
@@ -295,8 +268,8 @@
                 <div class="team-card" style="--photo-pos: center;">
                     <img src="Images/JN HEADSHOT1.jpg" alt="Jakob Nielsen">
                     <h4>Jakob Nielsen</h4>
-                    <p class="team-role" data-en="Safety Behaviour Specialist" data-de="Spezialist für Sicherheitsverhalten">Safety Behaviour Specialist</p>
-                    <p class="team-bio" data-en="Over 20 years of international HSE management experience. Widely connected with international legislators, influencing policy and promoting best practice in safety standards." data-de="Über 20 Jahre internationale Erfahrung im HSE-Management. Gut vernetzt mit internationalen Gesetzgebern, beeinflusst politische Entscheidungen und fördert Best Practices in Sicherheitsstandards.">Over 20 years of international HSE management experience. Widely connected with international legislators, influencing policy and promoting best practice in safety standards.</p>
+                    <p class="team-role" data-en="Safety Behaviour Specialist" data-de="Spezialist für Sicherheitsverhalten" data-es="Especialista en Comportamiento de Seguridad">Safety Behaviour Specialist</p>
+                    <p class="team-bio" data-en="Over 20 years of international HSE management experience. Widely connected with international legislators, influencing policy and promoting best practice in safety standards." data-de="Über 20 Jahre internationale Erfahrung im HSE-Management. Gut vernetzt mit internationalen Gesetzgebern, beeinflusst politische Entscheidungen und fördert Best Practices in Sicherheitsstandards." data-es="Más de 20 años de experiencia internacional en gestión HSE. Ampliamente conectado con legisladores internacionales, influyendo en políticas y promoviendo las mejores prácticas en estándares de seguridad.">Over 20 years of international HSE management experience. Widely connected with international legislators, influencing policy and promoting best practice in safety standards.</p>
                     <a href="https://www.linkedin.com/in/jakob-nielsen-bb198b4/" class="team-li-link" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24"><path d="M19.7,3H4.3C3.582,3,3,3.582,3,4.3v15.4C3,20.418,3.582,21,4.3,21h15.4c0.718,0,1.3-0.582,1.3-1.3V4.3 C21,3.582,20.418,3,19.7,3z M8.339,18.338H5.667v-8.59h2.672V18.338z M7.004,8.574c-0.857,0-1.549-0.694-1.549-1.548 c0-0.855,0.691-1.548,1.549-1.548c0.854,0,1.547,0.694,1.547,1.548C8.551,7.881,7.858,8.574,7.004,8.574z M18.339,18.338h-2.669 v-4.177c0-0.996-0.017-2.278-1.387-2.278c-1.389,0-1.601,1.086-1.601,2.206v4.249h-2.667v-8.59h2.559v1.174h0.037 c0.356-0.675,1.227-1.387,2.526-1.387c2.703,0,3.203,1.779,3.203,4.092V18.338z"/></svg>
                         LinkedIn
@@ -306,8 +279,8 @@
                 <div class="team-card" style="--photo-pos: center;">
                     <img src="Images/MB headshot.jpeg" alt="Monica Baistrocchi">
                     <h4>Monica Baistrocchi</h4>
-                    <p class="team-role" data-en="Management Coach" data-de="Management-Coach">Management Coach</p>
-                    <p class="team-bio" data-en="Executive mentor specialising in transformative Health &amp; Safety leadership, Behavioural Safety, and organisational culture change. Proven track record aligning individual growth with operational goals." data-de="Executive-Mentorin mit Spezialisierung auf transformative Führung in Gesundheit &amp; Sicherheit, Verhaltenssicherheit und organisationalem Kulturwandel. Nachgewiesene Erfolge bei der Abstimmung von individuellem Wachstum mit operativen Zielen.">Executive mentor specialising in transformative Health &amp; Safety leadership, Behavioural Safety, and organisational culture change. Proven track record aligning individual growth with operational goals.</p>
+                    <p class="team-role" data-en="Management Coach" data-de="Management-Coach" data-es="Coach de Gestión">Management Coach</p>
+                    <p class="team-bio" data-en="Executive mentor specialising in transformative Health &amp; Safety leadership, Behavioural Safety, and organisational culture change. Proven track record aligning individual growth with operational goals." data-de="Executive-Mentorin mit Spezialisierung auf transformative Führung in Gesundheit &amp; Sicherheit, Verhaltenssicherheit und organisationalem Kulturwandel. Nachgewiesene Erfolge bei der Abstimmung von individuellem Wachstum mit operativen Zielen." data-es="Mentora ejecutiva especializada en liderazgo transformador de Salud y Seguridad, Seguridad Conductual y cambio de cultura organizacional. Historial probado alineando el crecimiento individual con los objetivos operacionales.">Executive mentor specialising in transformative Health &amp; Safety leadership, Behavioural Safety, and organisational culture change. Proven track record aligning individual growth with operational goals.</p>
                     <a href="https://www.linkedin.com/in/monica-baistrocchi/" class="team-li-link" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24"><path d="M19.7,3H4.3C3.582,3,3,3.582,3,4.3v15.4C3,20.418,3.582,21,4.3,21h15.4c0.718,0,1.3-0.582,1.3-1.3V4.3 C21,3.582,20.418,3,19.7,3z M8.339,18.338H5.667v-8.59h2.672V18.338z M7.004,8.574c-0.857,0-1.549-0.694-1.549-1.548 c0-0.855,0.691-1.548,1.549-1.548c0.854,0,1.547,0.694,1.547,1.548C8.551,7.881,7.858,8.574,7.004,8.574z M18.339,18.338h-2.669 v-4.177c0-0.996-0.017-2.278-1.387-2.278c-1.389,0-1.601,1.086-1.601,2.206v4.249h-2.667v-8.59h2.559v1.174h0.037 c0.356-0.675,1.227-1.387,2.526-1.387c2.703,0,3.203,1.779,3.203,4.092V18.338z"/></svg>
                         LinkedIn
@@ -317,8 +290,8 @@
                 <div class="team-card" style="--photo-pos: top 10px;">
                     <img src="Images/MP HEADSHOT1.jpg" alt="Marcus Peters">
                     <h4>Marcus Peters</h4>
-                    <p class="team-role" data-en="Certified Strategic Performance Advisor" data-de="Zertifizierter Strategischer Leistungsberater">Certified Strategic Performance Advisor</p>
-                    <p class="team-bio" data-en="Globally recognised HSE leader with 30+ years of executive experience across renewable energy, offshore wind, construction, and engineering." data-de="Global anerkannter HSE-Führungsexperte mit über 30 Jahren Führungserfahrung in erneuerbarer Energie, Offshore-Wind, Bau und Ingenieurwesen.">Globally recognised HSE leader with 30+ years of executive experience across renewable energy, offshore wind, construction, and engineering.</p>
+                    <p class="team-role" data-en="Certified Strategic Performance Advisor" data-de="Zertifizierter Strategischer Leistungsberater" data-es="Asesor Estratégico de Rendimiento Certificado">Certified Strategic Performance Advisor</p>
+                    <p class="team-bio" data-en="Globally recognised HSE leader with 30+ years of executive experience across renewable energy, offshore wind, construction, and engineering." data-de="Global anerkannter HSE-Führungsexperte mit über 30 Jahren Führungserfahrung in erneuerbarer Energie, Offshore-Wind, Bau und Ingenieurwesen." data-es="Líder HSE de reconocimiento mundial con más de 30 años de experiencia ejecutiva en energía renovable, eólica marina, construcción e ingeniería.">Globally recognised HSE leader with 30+ years of executive experience across renewable energy, offshore wind, construction, and engineering.</p>
                     <a href="https://www.linkedin.com/in/marcus-peters-cfiosh-fei-c-s-p-a-pg-dip-1995a720/" class="team-li-link" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24"><path d="M19.7,3H4.3C3.582,3,3,3.582,3,4.3v15.4C3,20.418,3.582,21,4.3,21h15.4c0.718,0,1.3-0.582,1.3-1.3V4.3 C21,3.582,20.418,3,19.7,3z M8.339,18.338H5.667v-8.59h2.672V18.338z M7.004,8.574c-0.857,0-1.549-0.694-1.549-1.548 c0-0.855,0.691-1.548,1.549-1.548c0.854,0,1.547,0.694,1.547,1.548C8.551,7.881,7.858,8.574,7.004,8.574z M18.339,18.338h-2.669 v-4.177c0-0.996-0.017-2.278-1.387-2.278c-1.389,0-1.601,1.086-1.601,2.206v4.249h-2.667v-8.59h2.559v1.174h0.037 c0.356-0.675,1.227-1.387,2.526-1.387c2.703,0,3.203,1.779,3.203,4.092V18.338z"/></svg>
                         LinkedIn
@@ -328,8 +301,8 @@
                 <div class="team-card" style="--photo-pos: top;">
                     <img src="Images/GA HEADSHOT1.png" alt="Gustavo Alonso">
                     <h4>Gustavo Alonso</h4>
-                    <p class="team-role" data-en="QHSE Manager" data-de="QHSE-Manager">QHSE Manager</p>
-                    <p class="team-bio" data-en="Skilled at creating and implementing training strategies that maximise safety and efficiency. Committed to reliable leadership and sustainable relationships at all levels." data-de="Erfahren in der Entwicklung und Umsetzung von Trainingsstrategien, die Sicherheit und Effizienz maximieren. Engagiert für zuverlässige Führung und nachhaltige Beziehungen auf allen Ebenen.">Skilled at creating and implementing training strategies that maximise safety and efficiency. Committed to reliable leadership and sustainable relationships at all levels.</p>
+                    <p class="team-role" data-en="QHSE Manager" data-de="QHSE-Manager" data-es="Gerente QHSE">QHSE Manager</p>
+                    <p class="team-bio" data-en="Skilled at creating and implementing training strategies that maximise safety and efficiency. Committed to reliable leadership and sustainable relationships at all levels." data-de="Erfahren in der Entwicklung und Umsetzung von Trainingsstrategien, die Sicherheit und Effizienz maximieren. Engagiert für zuverlässige Führung und nachhaltige Beziehungen auf allen Ebenen." data-es="Hábil en la creación e implementación de estrategias de formación que maximizan la seguridad y la eficiencia. Comprometido con un liderazgo fiable y relaciones sostenibles en todos los niveles.">Skilled at creating and implementing training strategies that maximise safety and efficiency. Committed to reliable leadership and sustainable relationships at all levels.</p>
                     <a href="https://www.linkedin.com/in/gustavo-alonso-l%C3%B3pez-a336b022/" class="team-li-link" target="_blank" rel="noopener">
                         <svg viewBox="0 0 24 24"><path d="M19.7,3H4.3C3.582,3,3,3.582,3,4.3v15.4C3,20.418,3.582,21,4.3,21h15.4c0.718,0,1.3-0.582,1.3-1.3V4.3 C21,3.582,20.418,3,19.7,3z M8.339,18.338H5.667v-8.59h2.672V18.338z M7.004,8.574c-0.857,0-1.549-0.694-1.549-1.548 c0-0.855,0.691-1.548,1.549-1.548c0.854,0,1.547,0.694,1.547,1.548C8.551,7.881,7.858,8.574,7.004,8.574z M18.339,18.338h-2.669 v-4.177c0-0.996-0.017-2.278-1.387-2.278c-1.389,0-1.601,1.086-1.601,2.206v4.249h-2.667v-8.59h2.559v1.174h0.037 c0.356-0.675,1.227-1.387,2.526-1.387c2.703,0,3.203,1.779,3.203,4.092V18.338z"/></svg>
                         LinkedIn
@@ -344,97 +317,97 @@
 <!-- ─── WHITE PAPER CTA ─── -->
 <section class="whitepaper-cta" id="white-paper">
     <div class="container-narrow">
-        <h2 class="reveal" data-en="Download the SELFTY White Paper" data-de="Das SELFTY White Paper herunterladen">Download the SELFTY White Paper</h2>
-        <p class="section-intro reveal" data-en="Comprehensive insights on protecting your workforce for operational success." data-de="Umfassende Einblicke zum Schutz Ihrer Belegschaft für betrieblichen Erfolg.">Comprehensive insights on protecting your workforce for operational success.</p>
-        <a href="Docs/ConverSafe-White-Paper-Selfty-EN.pdf" class="btn-primary reveal" data-en="Read Now" data-de="Jetzt lesen">Read Now</a>
+        <h2 class="reveal" data-en="Download the SELFTY White Paper" data-de="Das SELFTY White Paper herunterladen" data-es="Descargar el White Paper de SELFTY">Download the SELFTY White Paper</h2>
+        <p class="section-intro reveal" data-en="Comprehensive insights on protecting your workforce for operational success." data-de="Umfassende Einblicke zum Schutz Ihrer Belegschaft für betrieblichen Erfolg." data-es="Información completa sobre cómo proteger a su plantilla para el éxito operacional.">Comprehensive insights on protecting your workforce for operational success.</p>
+        <a href="Docs/ConverSafe-White-Paper-Selfty-EN.pdf" class="btn-primary reveal" data-en="Read Now" data-de="Jetzt lesen" data-es="Leer ahora">Read Now</a>
     </div>
 </section>
 
 <!-- ─── FAQ ─── -->
 <section class="faq-section" id="faq">
     <div class="container-narrow">
-        <h2 class="reveal" data-en="Frequently Asked Questions" data-de="Häufig gestellte Fragen">Frequently Asked Questions</h2>
-        <p class="section-intro reveal" data-en="Straight answers to the questions we hear most." data-de="Direkte Antworten auf die häufigsten Fragen.">Straight answers to the questions we hear most.</p>
+        <h2 class="reveal" data-en="Frequently Asked Questions" data-de="Häufig gestellte Fragen" data-es="Preguntas Frecuentes">Frequently Asked Questions</h2>
+        <p class="section-intro reveal" data-en="Straight answers to the questions we hear most." data-de="Direkte Antworten auf die häufigsten Fragen." data-es="Respuestas directas a las preguntas más frecuentes.">Straight answers to the questions we hear most.</p>
 
         <div class="accordion-wrap reveal">
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="What does SELFTY mean?" data-de="Was bedeutet SELFTY?">What does SELFTY mean?</span>
+                    <span data-en="What does SELFTY mean?" data-de="Was bedeutet SELFTY?" data-es="¿Qué significa SELFTY?">What does SELFTY mean?</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body">
                     <div class="acc-body-inner">
-                        <p data-en="SELFTY combines the words SELF and SAFETY. It names the shift from compliance-driven safety — where rules and procedures are imposed from outside — to personal ownership, where each individual understands and manages their own risk behaviour." data-de="SELFTY verbindet die Wörter SELF (Selbst) und SAFETY (Sicherheit). Es bezeichnet den Wandel von compliancegetriebenem Sicherheitsdenken — bei dem Regeln und Verfahren von außen auferlegt werden — hin zur persönlichen Verantwortung, bei der jeder Einzelne sein eigenes Risikoverhalten versteht und steuert.">SELFTY combines the words SELF and SAFETY. It names the shift from compliance-driven safety — where rules and procedures are imposed from outside — to personal ownership, where each individual understands and manages their own risk behaviour.</p>
+                        <p data-en="SELFTY combines the words SELF and SAFETY. It names the shift from compliance-driven safety — where rules and procedures are imposed from outside — to personal ownership, where each individual understands and manages their own risk behaviour." data-de="SELFTY verbindet die Wörter SELF (Selbst) und SAFETY (Sicherheit). Es bezeichnet den Wandel von compliancegetriebenem Sicherheitsdenken — bei dem Regeln und Verfahren von außen auferlegt werden — hin zur persönlichen Verantwortung, bei der jeder Einzelne sein eigenes Risikoverhalten versteht und steuert." data-es="SELFTY combina las palabras SELF (uno mismo) y SAFETY (seguridad). Nombra el cambio de una seguridad impulsada por el cumplimiento — donde las reglas y procedimientos se imponen desde fuera — hacia la responsabilidad personal, donde cada individuo comprende y gestiona su propio comportamiento de riesgo.">SELFTY combines the words SELF and SAFETY. It names the shift from compliance-driven safety — where rules and procedures are imposed from outside — to personal ownership, where each individual understands and manages their own risk behaviour.</p>
                     </div>
                 </div>
             </div>
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="How is SELFTY different from standard HSE training?" data-de="Wie unterscheidet sich SELFTY von herkömmlichem HSE-Training?">How is SELFTY different from standard HSE training?</span>
+                    <span data-en="How is SELFTY different from standard HSE training?" data-de="Wie unterscheidet sich SELFTY von herkömmlichem HSE-Training?" data-es="¿En qué se diferencia SELFTY de la formación HSE estándar?">How is SELFTY different from standard HSE training?</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body">
                     <div class="acc-body-inner">
-                        <p data-en="Standard HSE programmes focus on equipment, procedures, and compliance checklists. These are necessary but insufficient: they don't change the underlying habits and perception patterns that cause most accidents." data-de="Herkömmliche HSE-Programme konzentrieren sich auf Ausrüstung, Verfahren und Compliance-Checklisten. Diese sind notwendig, aber nicht ausreichend: Sie verändern nicht die zugrundeliegenden Gewohnheiten und Wahrnehmungsmuster, die die meisten Unfälle verursachen.">Standard HSE programmes focus on equipment, procedures, and compliance checklists. These are necessary but insufficient: they don't change the underlying habits and perception patterns that cause most accidents.</p>
-                        <p data-en="SELFTY adds the human dimension. It uses neuroscience to address the root causes of human error — factors like fatigue, routine, multitasking, and emotional state — through self-awareness and adult learning, not box-ticking." data-de="SELFTY fügt die menschliche Dimension hinzu. Es nutzt Neurowissenschaft, um die Ursachen menschlichen Versagens anzugehen — Faktoren wie Müdigkeit, Routine, Multitasking und emotionalen Zustand — durch Selbstwahrnehmung und Erwachsenenlernen, nicht durch Abhaken von Listen.">SELFTY adds the human dimension. It uses neuroscience to address the root causes of human error — factors like fatigue, routine, multitasking, and emotional state — through self-awareness and adult learning, not box-ticking.</p>
+                        <p data-en="Standard HSE programmes focus on equipment, procedures, and compliance checklists. These are necessary but insufficient: they don't change the underlying habits and perception patterns that cause most accidents." data-de="Herkömmliche HSE-Programme konzentrieren sich auf Ausrüstung, Verfahren und Compliance-Checklisten. Diese sind notwendig, aber nicht ausreichend: Sie verändern nicht die zugrundeliegenden Gewohnheiten und Wahrnehmungsmuster, die die meisten Unfälle verursachen." data-es="Los programas HSE estándar se centran en equipos, procedimientos y listas de verificación de cumplimiento. Estos son necesarios pero insuficientes: no cambian los hábitos subyacentes y los patrones de percepción que causan la mayoría de los accidentes.">Standard HSE programmes focus on equipment, procedures, and compliance checklists. These are necessary but insufficient: they don't change the underlying habits and perception patterns that cause most accidents.</p>
+                        <p data-en="SELFTY adds the human dimension. It uses neuroscience to address the root causes of human error — factors like fatigue, routine, multitasking, and emotional state — through self-awareness and adult learning, not box-ticking." data-de="SELFTY fügt die menschliche Dimension hinzu. Es nutzt Neurowissenschaft, um die Ursachen menschlichen Versagens anzugehen — Faktoren wie Müdigkeit, Routine, Multitasking und emotionalen Zustand — durch Selbstwahrnehmung und Erwachsenenlernen, nicht durch Abhaken von Listen." data-es="SELFTY añade la dimensión humana. Utiliza la neurociencia para abordar las causas raíz del error humano — factores como la fatiga, la rutina, la multitarea y el estado emocional — mediante la autoconciencia y el aprendizaje adulto, no marcando casillas.">SELFTY adds the human dimension. It uses neuroscience to address the root causes of human error — factors like fatigue, routine, multitasking, and emotional state — through self-awareness and adult learning, not box-ticking.</p>
                     </div>
                 </div>
             </div>
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="Which industries does SELFTY apply to?" data-de="Für welche Branchen ist SELFTY geeignet?">Which industries does SELFTY apply to?</span>
+                    <span data-en="Which industries does SELFTY apply to?" data-de="Für welche Branchen ist SELFTY geeignet?" data-es="¿A qué sectores se aplica SELFTY?">Which industries does SELFTY apply to?</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body">
                     <div class="acc-body-inner">
-                        <p data-en="SELFTY is built for high-risk environments where human error has real consequences. The ConverSafe team brings direct experience from offshore and onshore renewable energy, maritime operations, construction, engineering, and industrial manufacturing." data-de="SELFTY ist für Hochrisikoumgebungen konzipiert, in denen menschliches Versagen reale Konsequenzen hat. Das ConverSafe-Team bringt direkte Erfahrung aus Offshore- und Onshore-Erneuerbaren-Energien, maritimen Operationen, Bau, Ingenieurwesen und der Industrieproduktion mit.">SELFTY is built for high-risk environments where human error has real consequences. The ConverSafe team brings direct experience from offshore and onshore renewable energy, maritime operations, construction, engineering, and industrial manufacturing.</p>
-                        <p data-en="The principles apply wherever people work under pressure, in routine-driven roles, or at the interface of human decisions and safety-critical outcomes." data-de="Die Prinzipien gelten überall dort, wo Menschen unter Druck arbeiten, in routinegeprägten Tätigkeiten oder an der Schnittstelle zwischen menschlichen Entscheidungen und sicherheitskritischen Ergebnissen.">The principles apply wherever people work under pressure, in routine-driven roles, or at the interface of human decisions and safety-critical outcomes.</p>
+                        <p data-en="SELFTY is built for high-risk environments where human error has real consequences. The ConverSafe team brings direct experience from offshore and onshore renewable energy, maritime operations, construction, engineering, and industrial manufacturing." data-de="SELFTY ist für Hochrisikoumgebungen konzipiert, in denen menschliches Versagen reale Konsequenzen hat. Das ConverSafe-Team bringt direkte Erfahrung aus Offshore- und Onshore-Erneuerbaren-Energien, maritimen Operationen, Bau, Ingenieurwesen und der Industrieproduktion mit." data-es="SELFTY está diseñado para entornos de alto riesgo donde el error humano tiene consecuencias reales. El equipo de ConverSafe aporta experiencia directa en energías renovables offshore y onshore, operaciones marítimas, construcción, ingeniería y fabricación industrial.">SELFTY is built for high-risk environments where human error has real consequences. The ConverSafe team brings direct experience from offshore and onshore renewable energy, maritime operations, construction, engineering, and industrial manufacturing.</p>
+                        <p data-en="The principles apply wherever people work under pressure, in routine-driven roles, or at the interface of human decisions and safety-critical outcomes." data-de="Die Prinzipien gelten überall dort, wo Menschen unter Druck arbeiten, in routinegeprägten Tätigkeiten oder an der Schnittstelle zwischen menschlichen Entscheidungen und sicherheitskritischen Ergebnissen." data-es="Los principios se aplican dondequiera que las personas trabajen bajo presión, en roles impulsados por la rutina, o en la interfaz entre decisiones humanas y resultados críticos para la seguridad.">The principles apply wherever people work under pressure, in routine-driven roles, or at the interface of human decisions and safety-critical outcomes.</p>
                     </div>
                 </div>
             </div>
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="Does SELFTY require a new management system?" data-de="Erfordert SELFTY ein neues Managementsystem?">Does SELFTY require a new management system?</span>
+                    <span data-en="Does SELFTY require a new management system?" data-de="Erfordert SELFTY ein neues Managementsystem?" data-es="¿SELFTY requiere un nuevo sistema de gestión?">Does SELFTY require a new management system?</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body">
                     <div class="acc-body-inner">
-                        <p data-en="No. SELFTY integrates without a dedicated management system, without additional reporting, and without formal compliance structures. It works through maturity-level-oriented leadership and adult learning — emerging from within the existing organisation rather than being bolted on top." data-de="Nein. SELFTY integriert sich ohne ein eigenes Managementsystem, ohne zusätzliche Berichtspflichten und ohne formale Compliance-Strukturen. Es funktioniert durch reifegradbewusste Führung und Erwachsenenlernen — es entsteht aus der bestehenden Organisation heraus, anstatt von außen aufgesetzt zu werden.">No. SELFTY integrates without a dedicated management system, without additional reporting, and without formal compliance structures. It works through maturity-level-oriented leadership and adult learning — emerging from within the existing organisation rather than being bolted on top.</p>
+                        <p data-en="No. SELFTY integrates without a dedicated management system, without additional reporting, and without formal compliance structures. It works through maturity-level-oriented leadership and adult learning — emerging from within the existing organisation rather than being bolted on top." data-de="Nein. SELFTY integriert sich ohne ein eigenes Managementsystem, ohne zusätzliche Berichtspflichten und ohne formale Compliance-Strukturen. Es funktioniert durch reifegradbewusste Führung und Erwachsenenlernen — es entsteht aus der bestehenden Organisation heraus, anstatt von außen aufgesetzt zu werden." data-es="No. SELFTY se integra sin un sistema de gestión dedicado, sin informes adicionales y sin estructuras formales de cumplimiento. Funciona a través de un liderazgo orientado al nivel de madurez y el aprendizaje adulto — emergiendo desde dentro de la organización existente en lugar de ser añadido por encima.">No. SELFTY integrates without a dedicated management system, without additional reporting, and without formal compliance structures. It works through maturity-level-oriented leadership and adult learning — emerging from within the existing organisation rather than being bolted on top.</p>
                     </div>
                 </div>
             </div>
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="What does the SELFTY programme involve?" data-de="Was beinhaltet das SELFTY-Programm?">What does the SELFTY programme involve?</span>
+                    <span data-en="What does the SELFTY programme involve?" data-de="Was beinhaltet das SELFTY-Programm?" data-es="¿En qué consiste el programa SELFTY?">What does the SELFTY programme involve?</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body">
                     <div class="acc-body-inner">
-                        <p data-en="The programme develops SELFTY competencies through the ConverSafe Compass framework. Delivery uses storytelling and scenario-based learning to create emotional engagement and lasting habit change — not lecture-style training." data-de="Das Programm entwickelt SELFTY-Kompetenzen durch das ConverSafe Compass-Rahmenwerk. Die Vermittlung nutzt Storytelling und szenariobasiertes Lernen, um emotionale Einbindung und nachhaltige Verhaltensänderungen zu erzeugen — kein Frontalunterricht.">The programme develops SELFTY competencies through the ConverSafe Compass framework. Delivery uses storytelling and scenario-based learning to create emotional engagement and lasting habit change — not lecture-style training.</p>
-                        <p data-en="The approach works on two levels: individual maturity development (bottom-up) and leadership coalition support (top-down). Both are required for the programme to take hold and sustain." data-de="Der Ansatz funktioniert auf zwei Ebenen: individuelle Reifeentwicklung (Bottom-up) und Unterstützung durch eine Führungskoalition (Top-down). Beide sind erforderlich, damit das Programm greift und nachhaltig wirkt.">The approach works on two levels: individual maturity development (bottom-up) and leadership coalition support (top-down). Both are required for the programme to take hold and sustain.</p>
+                        <p data-en="The programme develops SELFTY competencies through the ConverSafe Compass framework. Delivery uses storytelling and scenario-based learning to create emotional engagement and lasting habit change — not lecture-style training." data-de="Das Programm entwickelt SELFTY-Kompetenzen durch das ConverSafe Compass-Rahmenwerk. Die Vermittlung nutzt Storytelling und szenariobasiertes Lernen, um emotionale Einbindung und nachhaltige Verhaltensänderungen zu erzeugen — kein Frontalunterricht." data-es="El programa desarrolla las competencias SELFTY a través del marco de la Brújula ConverSafe. La entrega utiliza la narrativa y el aprendizaje basado en escenarios para crear un compromiso emocional y un cambio de hábitos duradero — no una formación de estilo magistral.">The programme develops SELFTY competencies through the ConverSafe Compass framework. Delivery uses storytelling and scenario-based learning to create emotional engagement and lasting habit change — not lecture-style training.</p>
+                        <p data-en="The approach works on two levels: individual maturity development (bottom-up) and leadership coalition support (top-down). Both are required for the programme to take hold and sustain." data-de="Der Ansatz funktioniert auf zwei Ebenen: individuelle Reifeentwicklung (Bottom-up) und Unterstützung durch eine Führungskoalition (Top-down). Beide sind erforderlich, damit das Programm greift und nachhaltig wirkt." data-es="El enfoque funciona en dos niveles: desarrollo de madurez individual (ascendente) y apoyo de la coalición de liderazgo (descendente). Ambos son necesarios para que el programa arraigue y se sostenga.">The approach works on two levels: individual maturity development (bottom-up) and leadership coalition support (top-down). Both are required for the programme to take hold and sustain.</p>
                     </div>
                 </div>
             </div>
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="How long does it take to see results?" data-de="Wie lange dauert es, bis Ergebnisse sichtbar werden?">How long does it take to see results?</span>
+                    <span data-en="How long does it take to see results?" data-de="Wie lange dauert es, bis Ergebnisse sichtbar werden?" data-es="¿Cuánto tiempo se tarda en ver resultados?">How long does it take to see results?</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body">
                     <div class="acc-body-inner">
-                        <p data-en="SELFTY is a strategic investment, not a quick fix. Behavioural change that lasts a lifetime requires patient, sustainable development. That said, the approach is designed for efficiency — no parallel management system means no wasted overhead." data-de="SELFTY ist eine strategische Investition, keine schnelle Lösung. Verhaltensänderungen, die ein Leben lang anhalten, erfordern eine geduldige, nachhaltige Entwicklung. Dennoch ist der Ansatz auf Effizienz ausgelegt — kein paralleles Managementsystem bedeutet kein verschwendeter Aufwand.">SELFTY is a strategic investment, not a quick fix. Behavioural change that lasts a lifetime requires patient, sustainable development. That said, the approach is designed for efficiency — no parallel management system means no wasted overhead.</p>
-                        <p data-en="Early results typically appear in reduced near-misses, improved situational awareness, and stronger personal responsibility in daily task execution." data-de="Erste Ergebnisse zeigen sich typischerweise in reduzierten Beinahe-Unfällen, verbessertem Situationsbewusstsein und stärkerer persönlicher Verantwortung bei der täglichen Aufgabenerfüllung.">Early results typically appear in reduced near-misses, improved situational awareness, and stronger personal responsibility in daily task execution.</p>
+                        <p data-en="SELFTY is a strategic investment, not a quick fix. Behavioural change that lasts a lifetime requires patient, sustainable development. That said, the approach is designed for efficiency — no parallel management system means no wasted overhead." data-de="SELFTY ist eine strategische Investition, keine schnelle Lösung. Verhaltensänderungen, die ein Leben lang anhalten, erfordern eine geduldige, nachhaltige Entwicklung. Dennoch ist der Ansatz auf Effizienz ausgelegt — kein paralleles Managementsystem bedeutet kein verschwendeter Aufwand." data-es="SELFTY es una inversión estratégica, no una solución rápida. El cambio de comportamiento que dura toda la vida requiere un desarrollo paciente y sostenible. Dicho esto, el enfoque está diseñado para la eficiencia — ningún sistema de gestión paralelo significa ningún gasto general desperdiciado.">SELFTY is a strategic investment, not a quick fix. Behavioural change that lasts a lifetime requires patient, sustainable development. That said, the approach is designed for efficiency — no parallel management system means no wasted overhead.</p>
+                        <p data-en="Early results typically appear in reduced near-misses, improved situational awareness, and stronger personal responsibility in daily task execution." data-de="Erste Ergebnisse zeigen sich typischerweise in reduzierten Beinahe-Unfällen, verbessertem Situationsbewusstsein und stärkerer persönlicher Verantwortung bei der täglichen Aufgabenerfüllung." data-es="Los primeros resultados suelen aparecer en forma de reducción de casi accidentes, mejora de la conciencia situacional y mayor responsabilidad personal en la ejecución de tareas diarias.">Early results typically appear in reduced near-misses, improved situational awareness, and stronger personal responsibility in daily task execution.</p>
                     </div>
                 </div>
             </div>
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="How do we get started?" data-de="Wie fangen wir an?">How do we get started?</span>
+                    <span data-en="How do we get started?" data-de="Wie fangen wir an?" data-es="¿Cómo empezamos?">How do we get started?</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body">
                     <div class="acc-body-inner">
-                        <p data-en='The fastest route is a direct message via the <a href="https://www.linkedin.com/company/conversafe/" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:600;">ConverSafe Partnership LinkedIn page</a>. The team will respond within one business day to arrange an exploratory conversation — no commitment required.' data-de='Am schnellsten geht es über eine Direktnachricht auf der <a href="https://www.linkedin.com/company/conversafe/" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:600;">ConverSafe Partnership LinkedIn-Seite</a>. Das Team antwortet innerhalb eines Werktages, um ein erstes Gespräch zu vereinbaren — unverbindlich.'>The fastest route is a direct message via the <a href="https://www.linkedin.com/company/conversafe/" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:600;">ConverSafe Partnership LinkedIn page</a>. The team will respond within one business day to arrange an exploratory conversation — no commitment required.</p>
+                        <p data-en='The fastest route is a direct message via the <a href="https://www.linkedin.com/company/conversafe/" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:600;">ConverSafe Partnership LinkedIn page</a>. The team will respond within one business day to arrange an exploratory conversation — no commitment required.' data-de='Am schnellsten geht es über eine Direktnachricht auf der <a href="https://www.linkedin.com/company/conversafe/" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:600;">ConverSafe Partnership LinkedIn-Seite</a>. Das Team antwortet innerhalb eines Werktages, um ein erstes Gespräch zu vereinbaren — unverbindlich.' data-es='La ruta más rápida es un mensaje directo a través de la <a href="https://www.linkedin.com/company/conversafe/" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:600;">página de LinkedIn de ConverSafe Partnership</a>. El equipo responderá en un día hábil para organizar una conversación exploratoria — sin compromiso.'>The fastest route is a direct message via the <a href="https://www.linkedin.com/company/conversafe/" target="_blank" rel="noopener" style="color:var(--accent-dark); font-weight:600;">ConverSafe Partnership LinkedIn page</a>. The team will respond within one business day to arrange an exploratory conversation — no commitment required.</p>
                     </div>
                 </div>
             </div>
@@ -445,127 +418,107 @@
 <!-- ─── UN SDG ─── -->
 <section class="sdg-section">
     <div class="container-narrow">
-        <h2 class="reveal" data-en="Supports the United Nations Sustainable Development Goals" data-de="Unterstützt die Nachhaltigkeitsziele der Vereinten Nationen">Supports the United Nations Sustainable Development Goals</h2>
-        <p class="section-intro reveal" data-en="SELFTY actively contributes to a safer, more sustainable world." data-de="SELFTY trägt aktiv zu einer sichereren und nachhaltigeren Welt bei.">SELFTY actively contributes to a safer, more sustainable world.</p>
+        <h2 class="reveal" data-en="Supports the United Nations Sustainable Development Goals" data-de="Unterstützt die Nachhaltigkeitsziele der Vereinten Nationen" data-es="Apoya los Objetivos de Desarrollo Sostenible de las Naciones Unidas">Supports the United Nations Sustainable Development Goals</h2>
+        <p class="section-intro reveal" data-en="SELFTY actively contributes to a safer, more sustainable world." data-de="SELFTY trägt aktiv zu einer sichereren und nachhaltigeren Welt bei." data-es="SELFTY contribuye activamente a un mundo más seguro y sostenible.">SELFTY actively contributes to a safer, more sustainable world.</p>
 
         <div class="accordion-wrap reveal">
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="Good health and wellbeing" data-de="Gesundheit und Wohlbefinden">Good health and wellbeing</span>
+                    <span data-en="Good health and wellbeing" data-de="Gesundheit und Wohlbefinden" data-es="Salud y bienestar">Good health and wellbeing</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body"><div class="acc-body-inner">
                     <p><img src="Images/SDG Good health.png" alt="SDG 3" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
-                    <p data-en="SDG 3.6 — Halve the number of global deaths and injuries from road traffic accidents." data-de="SDG 3.6 — Die weltweite Anzahl von Todesfällen und Verletzungen durch Straßenverkehrsunfälle halbieren.">SDG 3.6 — Halve the number of global deaths and injuries from road traffic accidents.</p>
+                    <p data-en="SDG 3.6 — Halve the number of global deaths and injuries from road traffic accidents." data-de="SDG 3.6 — Die weltweite Anzahl von Todesfällen und Verletzungen durch Straßenverkehrsunfälle halbieren." data-es="ODS 3.6 — Reducir a la mitad el número de muertes y lesiones globales por accidentes de tráfico.">SDG 3.6 — Halve the number of global deaths and injuries from road traffic accidents.</p>
                 </div></div>
             </div>
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="Decent work and economic growth" data-de="Menschenwürdige Arbeit und Wirtschaftswachstum">Decent work and economic growth</span>
+                    <span data-en="Decent work and economic growth" data-de="Menschenwürdige Arbeit und Wirtschaftswachstum" data-es="Trabajo decente y crecimiento económico">Decent work and economic growth</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body"><div class="acc-body-inner">
                     <p><img src="Images/SDG Decent work.png" alt="SDG 8" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
-                    <p data-en="SDG 8.2 — Higher economic productivity through innovation and labour-intensive sector development." data-de="SDG 8.2 — Höhere Wirtschaftsproduktivität durch Innovation und Entwicklung arbeitsintensiver Sektoren.">SDG 8.2 — Higher economic productivity through innovation and labour-intensive sector development.</p>
-                    <p data-en="SDG 8.8 — Protect labour rights and promote safe, secure working environments for all workers." data-de="SDG 8.8 — Arbeitsrechte schützen und sichere Arbeitsumgebungen für alle Arbeitnehmer fördern.">SDG 8.8 — Protect labour rights and promote safe, secure working environments for all workers.</p>
+                    <p data-en="SDG 8.2 — Higher economic productivity through innovation and labour-intensive sector development." data-de="SDG 8.2 — Höhere Wirtschaftsproduktivität durch Innovation und Entwicklung arbeitsintensiver Sektoren." data-es="ODS 8.2 — Mayor productividad económica mediante la innovación y el desarrollo de sectores de uso intensivo de mano de obra.">SDG 8.2 — Higher economic productivity through innovation and labour-intensive sector development.</p>
+                    <p data-en="SDG 8.8 — Protect labour rights and promote safe, secure working environments for all workers." data-de="SDG 8.8 — Arbeitsrechte schützen und sichere Arbeitsumgebungen für alle Arbeitnehmer fördern." data-es="ODS 8.8 — Proteger los derechos laborales y promover entornos de trabajo seguros para todos los trabajadores.">SDG 8.8 — Protect labour rights and promote safe, secure working environments for all workers.</p>
                 </div></div>
             </div>
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="Sustainable cities and communities" data-de="Nachhaltige Städte und Gemeinden">Sustainable cities and communities</span>
+                    <span data-en="Sustainable cities and communities" data-de="Nachhaltige Städte und Gemeinden" data-es="Ciudades y comunidades sostenibles">Sustainable cities and communities</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body"><div class="acc-body-inner">
                     <p><img src="Images/SDG Sustainable.png" alt="SDG 11" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
-                    <p data-en="SDG 11.2 — Access to safe, affordable, accessible, and sustainable transport systems for all." data-de="SDG 11.2 — Zugang zu sicheren, erschwinglichen, zugänglichen und nachhaltigen Verkehrssystemen für alle.">SDG 11.2 — Access to safe, affordable, accessible, and sustainable transport systems for all.</p>
+                    <p data-en="SDG 11.2 — Access to safe, affordable, accessible, and sustainable transport systems for all." data-de="SDG 11.2 — Zugang zu sicheren, erschwinglichen, zugänglichen und nachhaltigen Verkehrssystemen für alle." data-es="ODS 11.2 — Acceso a sistemas de transporte seguros, asequibles, accesibles y sostenibles para todos.">SDG 11.2 — Access to safe, affordable, accessible, and sustainable transport systems for all.</p>
                 </div></div>
             </div>
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="Climate action" data-de="Maßnahmen zum Klimaschutz">Climate action</span>
+                    <span data-en="Climate action" data-de="Maßnahmen zum Klimaschutz" data-es="Acción por el clima">Climate action</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body"><div class="acc-body-inner">
-                    <p><img src="Images/SDG Climate Action.png" alt="SDG 13" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
-                    <p data-en="SDG 13.1 — Strengthen resilience and adaptive capacity to climate-related hazards and natural disasters." data-de="SDG 13.1 — Widerstandsfähigkeit und Anpassungsfähigkeit gegenüber klimabezogenen Gefahren und Naturkatastrophen stärken.">SDG 13.1 — Strengthen resilience and adaptive capacity to climate-related hazards and natural disasters.</p>
+                    <p><img src="Images/SDG Climate action.png" alt="SDG 13" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
+                    <p data-en="SDG 13.1 — Strengthen resilience and adaptive capacity to climate-related hazards and natural disasters." data-de="SDG 13.1 — Widerstandsfähigkeit und Anpassungsfähigkeit gegenüber klimabezogenen Gefahren und Naturkatastrophen stärken." data-es="ODS 13.1 — Fortalecer la resiliencia y la capacidad de adaptación a los riesgos relacionados con el clima y los desastres naturales.">SDG 13.1 — Strengthen resilience and adaptive capacity to climate-related hazards and natural disasters.</p>
                 </div></div>
             </div>
             <div class="acc-item">
                 <div class="acc-header" onclick="toggleAcc(this)">
-                    <span data-en="Peace, justice and strong institutions" data-de="Frieden, Gerechtigkeit und starke Institutionen">Peace, justice and strong institutions</span>
+                    <span data-en="Peace, justice and strong institutions" data-de="Frieden, Gerechtigkeit und starke Institutionen" data-es="Paz, justicia e instituciones sólidas">Peace, justice and strong institutions</span>
                     <span class="acc-icon">+</span>
                 </div>
                 <div class="acc-body"><div class="acc-body-inner">
                     <p><img src="Images/SDG Peace.png" alt="SDG 16" style="width:60px;margin-bottom:8px;border-radius:4px;"></p>
-                    <p data-en="SDG 16.1 — Significantly reduce all forms of violence and related death rates everywhere." data-de="SDG 16.1 — Alle Formen von Gewalt und damit verbundene Todesraten überall erheblich reduzieren.">SDG 16.1 — Significantly reduce all forms of violence and related death rates everywhere.</p>
+                    <p data-en="SDG 16.1 — Significantly reduce all forms of violence and related death rates everywhere." data-de="SDG 16.1 — Alle Formen von Gewalt und damit verbundene Todesraten überall erheblich reduzieren." data-es="ODS 16.1 — Reducir significativamente todas las formas de violencia y las tasas de mortalidad relacionadas en todo el mundo.">SDG 16.1 — Significantly reduce all forms of violence and related death rates everywhere.</p>
                 </div></div>
             </div>
         </div>
 
-        <p style="margin-top:32px; font-size:0.8rem; color:var(--text-muted); text-align:center;" data-en='"The content of this site has not been approved by the United Nations and does not reflect the views of the United Nations or its officials or Member States."' data-de='"Der Inhalt dieser Website wurde von den Vereinten Nationen nicht genehmigt und spiegelt nicht die Ansichten der Vereinten Nationen oder ihrer Beamten oder Mitgliedstaaten wider."'>"The content of this site has not been approved by the United Nations and does not reflect the views of the United Nations or its officials or Member States."</p>
+        <p style="margin-top:32px; font-size:0.8rem; color:var(--text-muted); text-align:center;" data-en='"The content of this site has not been approved by the United Nations and does not reflect the views of the United Nations or its officials or Member States."' data-de='"Der Inhalt dieser Website wurde von den Vereinten Nationen nicht genehmigt und spiegelt nicht die Ansichten der Vereinten Nationen oder ihrer Beamten oder Mitgliedstaaten wider."' data-es='"El contenido de este sitio no ha sido aprobado por las Naciones Unidas y no refleja las opiniones de las Naciones Unidas ni de sus funcionarios o Estados Miembros."'>"The content of this site has not been approved by the United Nations and does not reflect the views of the United Nations or its officials or Member States."</p>
     </div>
 </section>
 
 <!-- ─── CONTACT ─── -->
 <section class="contact-section" id="contact">
     <div class="container-narrow">
-        <h2 class="reveal" data-en="Start the Conversation" data-de="Gespräch beginnen">Start the Conversation</h2>
-        <p class="reveal" style="margin-bottom:8px;" data-en="Ready to explore SELFTY for your organisation? Contact us on LinkedIn or speak directly with one of our three team members." data-de="Bereit, SELFTY für Ihre Organisation zu erkunden? Kontaktieren Sie uns über LinkedIn oder sprechen Sie direkt mit einem unserer drei Teammitglieder."> Ready to explore SELFTY for your organisation? Contact us on LinkedIn or speak directly with one of our three team members.</p>
+        <h2 class="reveal" data-en="Start the Conversation" data-de="Gespräch beginnen" data-es="Inicia la Conversación">Start the Conversation</h2>
+        <p class="reveal" style="margin-bottom:8px;" data-en="Ready to explore SELFTY for your organisation? Contact us on LinkedIn or speak directly with one of our three team members." data-de="Bereit, SELFTY für Ihre Organisation zu erkunden? Kontaktieren Sie uns über LinkedIn oder sprechen Sie direkt mit einem unserer drei Teammitglieder." data-es="¿Listo para explorar SELFTY para su organización? Contáctenos en LinkedIn o hable directamente con uno de nuestros tres miembros del equipo.">Ready to explore SELFTY for your organisation? Contact us on LinkedIn or speak directly with one of our three team members.</p>
 
+        <!-- FIX: properly closed .contact-btns wrapper -->
         <div class="contact-btns reveal">
             <a href="https://www.linkedin.com/company/conversafe/" target="_blank" rel="noopener" class="contact-btn contact-btn--li">
                 <img src="Images/Linkedin.jpg" alt="LinkedIn" class="contact-btn-img">
-                <span class="contact-btn-label" data-en="Message on LinkedIn" data-de="Nachricht auf LinkedIn">Message on LinkedIn</span>
-                <span class="contact-btn-sub" data-en="Fastest response" data-de="Schnellste Antwort">Fastest response</span>
+                <span class="contact-btn-label" data-en="Message on LinkedIn" data-de="Nachricht auf LinkedIn" data-es="Mensaje en LinkedIn">Message on LinkedIn</span>
+                <span class="contact-btn-sub" data-en="Fastest response" data-de="Schnellste Antwort" data-es="Respuesta más rápida">Fastest response</span>
             </a>
-            <!-- NEW: 3 team members -->
-    <div class="contact-btns--team">
 
-    <a href="https://www.linkedin.com/in/robin-stowell-46a65515/" class="contact-btn contact-btn--team">
-        <img src="Images/Robin S.jpg" alt="Robin Stowell" class="contact-btn-img">
-        <span class="contact-btn-label"
-              data-en="Robin Stowell"
-              data-de="Robin Stowell">Robin Stowell</span>
+            <div class="contact-btns--team">
+                <a href="https://www.linkedin.com/in/robin-stowell-46a65515/" class="contact-btn contact-btn--team">
+                    <img src="Images/Robin S.jpg" alt="Robin Stowell" class="contact-btn-img">
+                    <span class="contact-btn-label" data-en="Robin Stowell" data-de="Robin Stowell" data-es="Robin Stowell">Robin Stowell</span>
+                    <span class="contact-btn-sub" data-en="Systems Thinking Safety Practitioner" data-de="Fachpraktiker für sicherheitsorientiertes Systemdenken" data-es="Profesional en Seguridad y Pensamiento Sistémico">Systems Thinking Safety Practitioner</span>
+                </a>
 
-        <span class="contact-btn-sub"
-              data-en="Systems Thinking Safety Practitioner"
-              data-de="Fachpraktiker für sicherheitsorientiertes Systemdenken">
-              Systems Thinking Safety Practitioner
-        </span>
-    </a>
+                <a href="https://www.linkedin.com/in/thorsten-guhr-634b2116/" class="contact-btn contact-btn--team">
+                    <!-- FIX: corrected spelling Thorsten (not Thornsten) -->
+                    <img src="Images/TG HEADSHOT2.png" alt="Thorsten Guhr" class="contact-btn-img">
+                    <span class="contact-btn-label" data-en="Thorsten Guhr" data-de="Thorsten Guhr" data-es="Thorsten Guhr">Thorsten Guhr</span>
+                    <span class="contact-btn-sub" data-en="Management Coach" data-de="Management‑Coach" data-es="Coach de Gestión">Management Coach</span>
+                </a>
 
-    <a href="https://www.linkedin.com/in/thorsten-guhr-634b2116/" class="contact-btn contact-btn--team">
-        <img src="Images/TG HEADSHOT2.png" alt="Thornsten Guhr" class="contact-btn-img">
-        <span class="contact-btn-label"
-              data-en="Thornsten Guhr"
-              data-de="Thornsten Guhr">Thornsten Guhr</span>
-
-        <span class="contact-btn-sub"
-              data-en="Management Coach"
-              data-de="Management‑Coach">
-              Management Coach
-        </span>
-    </a>
-
-    <a href="https://www.linkedin.com/in/jason-mcqueen-85315b50/" class="contact-btn contact-btn--team">
-        <img src="Images/JM HEADSHOT2.png" alt="Jason Mcqueen" class="contact-btn-img">
-        <span class="contact-btn-label"
-              data-en="Jason Mcqueen"
-              data-de="Jason Mcqueen">Jason Mcqueen</span>
-
-        <span class="contact-btn-sub"
-              data-en="Training Manager"
-              data-de="Leiter Training">
-              Training Manager
-        </span>
-    </a>
-
-</div>
+                <a href="https://www.linkedin.com/in/jason-mcqueen-85315b50/" class="contact-btn contact-btn--team">
+                    <img src="Images/JM HEADSHOT2.png" alt="Jason Mcqueen" class="contact-btn-img">
+                    <span class="contact-btn-label" data-en="Jason Mcqueen" data-de="Jason Mcqueen" data-es="Jason Mcqueen">Jason Mcqueen</span>
+                    <span class="contact-btn-sub" data-en="Training Manager" data-de="Leiter Training" data-es="Director de Formación">Training Manager</span>
+                </a>
+            </div>
+        </div><!-- END .contact-btns -->
 
         <div class="privacy-box reveal">
-            <h2 data-en="Privacy Policy" data-de="Datenschutzerklärung">Privacy Policy</h2>
-            <p data-en="This privacy notice describes how we collect and use personal information about you when you use our website, in accordance with the UK General Data Protection Regulation (UK GDPR) in the UK and the General Data Protection Regulation (GDPR) in the EU." data-de="Diese Datenschutzerklärung beschreibt, wie wir personenbezogene Daten über Sie erheben und verwenden, wenn Sie unsere Website nutzen, in Übereinstimmung mit der UK General Data Protection Regulation (UK GDPR) im Vereinigten Königreich und der Datenschutz-Grundverordnung (DSGVO) in der EU.">This privacy notice describes how we collect and use personal information about you when you use our website, in accordance with the UK General Data Protection Regulation (UK GDPR) in the UK and the General Data Protection Regulation (GDPR) in the EU.</p>
-            <a href="Docs/ConverSafe-Website-policy-November-2024.pdf" class="btn-outline" download data-en="Download Policy PDF" data-de="Richtlinien-PDF herunterladen">Download Policy PDF</a>
+            <h2 data-en="Privacy Policy" data-de="Datenschutzerklärung" data-es="Política de Privacidad">Privacy Policy</h2>
+            <p data-en="This privacy notice describes how we collect and use personal information about you when you use our website, in accordance with the UK General Data Protection Regulation (UK GDPR) in the UK and the General Data Protection Regulation (GDPR) in the EU." data-de="Diese Datenschutzerklärung beschreibt, wie wir personenbezogene Daten über Sie erheben und verwenden, wenn Sie unsere Website nutzen, in Übereinstimmung mit der UK General Data Protection Regulation (UK GDPR) im Vereinigten Königreich und der Datenschutz-Grundverordnung (DSGVO) in der EU." data-es="Este aviso de privacidad describe cómo recopilamos y utilizamos su información personal cuando utiliza nuestro sitio web, de conformidad con el Reglamento General de Protección de Datos del Reino Unido (UK GDPR) en el Reino Unido y el Reglamento General de Protección de Datos (RGPD) en la UE.">This privacy notice describes how we collect and use personal information about you when you use our website, in accordance with the UK General Data Protection Regulation (UK GDPR) in the UK and the General Data Protection Regulation (GDPR) in the EU.</p>
+            <a href="Docs/ConverSafe-Website-policy-November-2024.pdf" class="btn-outline" download data-en="Download Policy PDF" data-de="Richtlinien-PDF herunterladen" data-es="Descargar PDF de política">Download Policy PDF</a>
         </div>
     </div>
 </section>
@@ -575,15 +528,15 @@
     <div class="footer-inner">
         <div>
             <img src="Images/ConverSafe-Partnership.png" alt="ConverSafe" style="height:28px; filter:brightness(1) invert(0); margin-bottom:12px; display:block;">
-            <p data-en="Registered Office:" data-de="Eingetragener Sitz:">Registered Office:</p>
+            <p data-en="Registered Office:" data-de="Eingetragener Sitz:" data-es="Sede registrada:">Registered Office:</p>
             <p>Red Lion Yard, Frome Road<br>BATH, BA2 2PP, UK</p>
-            <p style="margin-top:10px;" data-en='Images by <a href="https://www.freepik.com/" target="_blank" rel="noopener">Freepik</a>' data-de='Bilder von <a href="https://www.freepik.com/" target="_blank" rel="noopener">Freepik</a>'>Images by <a href="https://www.freepik.com/" target="_blank" rel="noopener">Freepik</a></p>
+            <p style="margin-top:10px;" data-en='Images by <a href="https://www.freepik.com/" target="_blank" rel="noopener">Freepik</a>' data-de='Bilder von <a href="https://www.freepik.com/" target="_blank" rel="noopener">Freepik</a>' data-es='Imágenes de <a href="https://www.freepik.com/" target="_blank" rel="noopener">Freepik</a>'>Images by <a href="https://www.freepik.com/" target="_blank" rel="noopener">Freepik</a></p>
         </div>
         <div class="footer-links">
-            <p style="font-weight:600; color:rgba(255,255,255,0.85); margin-bottom:8px;" data-en="Quick links" data-de="Schnelllinks">Quick links</p>
-            <p><a href="#selfty" onclick="smoothScrollTo(event,'selfty')" data-en="What is SELFTY?" data-de="Was ist SELFTY?">What is SELFTY?</a></p>
-            <p><a href="#compass" onclick="smoothScrollTo(event,'compass')" data-en="The SELFTY Compass" data-de="Der SELFTY-Kompass">The SELFTY Compass</a></p>
-            <p><a href="#faq" onclick="smoothScrollTo(event,'faq')" data-en="FAQ" data-de="FAQ">FAQ</a></p>
+            <p style="font-weight:600; color:rgba(255,255,255,0.85); margin-bottom:8px;" data-en="Quick links" data-de="Schnelllinks" data-es="Enlaces rápidos">Quick links</p>
+            <p><a href="#selfty" onclick="smoothScrollTo(event,'selfty')" data-en="What is SELFTY?" data-de="Was ist SELFTY?" data-es="¿Qué es SELFTY?">What is SELFTY?</a></p>
+            <p><a href="#compass" onclick="smoothScrollTo(event,'compass')" data-en="The SELFTY Compass" data-de="Der SELFTY-Kompass" data-es="La Brújula SELFTY">The SELFTY Compass</a></p>
+            <p><a href="#faq" onclick="smoothScrollTo(event,'faq')" data-en="FAQ" data-de="FAQ" data-es="Preguntas frecuentes">FAQ</a></p>
             <p><a href="https://www.linkedin.com/company/conversafe/" target="_blank" rel="noopener">LinkedIn</a></p>
         </div>
     </div>
@@ -597,26 +550,20 @@ function setLang(lang) {
     currentLang = lang;
     document.documentElement.lang = lang;
 
-    // Update toggle buttons
     document.getElementById('btn-en').classList.toggle('active', lang === 'en');
     document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
 
-    // Update all elements with data-en / data-de
-    document.querySelectorAll('[data-en][data-de]').forEach(function(el) {
+    document.querySelectorAll('[data-en]').forEach(function(el) {
         const text = el.getAttribute('data-' + lang);
-        if (text !== null) {
-            el.innerHTML = text;
-        }
+        if (text !== null) el.innerHTML = text;
     });
 
-    // Re-render compass accordion in new language
     renderCompassAccordion();
-
-    // Save preference
     try { localStorage.setItem('selfty-lang', lang); } catch(e) {}
 }
 
-// ─── COMPASS DATA (bilingual, clockwise order) ───
+// ─── COMPASS DATA ───
 const competenciesEN = [
     { title: 'Trigger Your Self-States', summary: 'Recognise when your internal state — stress, fatigue, frustration — is affecting your attention and behaviour before you act.', work: 'Pause and assess your state before operating equipment or starting a high-risk task.', street: 'Check in with yourself if feeling tired, distracted, or rushed while driving.', home: 'Notice when you are irritated or hurried and take a deliberate breath before acting.' },
     { title: 'Scan Around You', summary: 'Actively read your environment rather than operating on autopilot — keeping situational awareness sharp even in familiar settings.', work: 'Stay alert to shifting conditions on site, on the plant floor, or at height.', street: "Read road conditions, weather, and other drivers' behaviour continuously.", home: 'Stay aware of children, pets, wet surfaces, and changing hazards in the space.' },
@@ -639,7 +586,16 @@ const competenciesDE = [
     { title: 'Beinahe-Unfälle auswerten', summary: 'Lernen Sie aus Beinahe-Unfällen, indem Sie überprüfen, welche Zustände, Gefahren und Gewohnheiten beteiligt waren — und was Sie anders machen könnten.', work: 'Analysieren Sie jeden Beinahe-Unfall im Team zeitnah und offen.', street: 'Rekapitulieren Sie, was zu einem Beinahe-Unfall geführt hat, und passen Sie Ihr Verhalten an.', home: 'Besprechen Sie kritische Situationen mit Haushaltsmitgliedern offen und ohne Schuldzuweisungen.' }
 ];
 
-
+const competenciesES = [
+    { title: 'Activar tus estados internos', summary: 'Reconoce cuándo tu estado interno — estrés, fatiga, frustración — está afectando tu atención y comportamiento antes de actuar.', work: 'Haz una pausa y evalúa tu estado antes de operar equipos o comenzar una tarea de alto riesgo.', street: 'Comprueba cómo te sientes si estás cansado, distraído o con prisa al conducir.', home: 'Nota cuándo estás irritado o apresurado y respira deliberadamente antes de actuar.' },
+    { title: 'Escanear tu entorno', summary: 'Lee activamente tu entorno en lugar de operar en piloto automático — mantén la conciencia situacional alerta incluso en entornos familiares.', work: 'Mantente alerta a las condiciones cambiantes en el sitio, en la planta o en altura.', street: 'Lee continuamente las condiciones de la carretera, el clima y el comportamiento de otros conductores.', home: 'Mantente atento a niños, mascotas, superficies mojadas y peligros cambiantes en el espacio.' },
+    { title: 'Activar ante peligros', summary: 'Reconoce cuándo estás en zona de peligro físico y responde con la competencia para detenerte, evaluar y actuar de forma segura.', work: 'Identifica cuándo estás en la línea de fuego y retrocede antes de actuar.', street: 'Reconoce la pérdida de tracción, visibilidad reducida o control del vehículo comprometido.', home: 'Nota cuándo una tarea supera tu capacidad física y pide ayuda.' },
+    { title: 'Escanear a los demás', summary: 'Lee los estados, hábitos y peligros de las personas a tu alrededor antes de que escalen a incidentes.', work: 'Detecta a un colega que está apresurado, distraído o fatigado antes de que se lesione.', street: 'Nota el comportamiento errático de los conductores con anticipación y crea espacio seguro.', home: 'Capta las señales de estrés o distracción en los miembros de la familia y responde de forma solidaria.' },
+    { title: 'Activar para detenerte a ti mismo o a otros', summary: 'Sabe cuándo y cómo detener una acción insegura — la tuya o la de alguien más — usando un marco de decisión claro y practicado.', work: 'Aplica la regla de las 3 Ámbar: tres señales de advertencia significa detener la tarea y reevaluar.', street: 'Detente inmediatamente cuando te sientas deteriorado, cansado o demasiado distraído para conducir con seguridad.', home: 'Intervén con confianza cuando un niño o familiar se dirige hacia el peligro.' },
+    { title: 'Escanear el futuro', summary: 'Mira hacia adelante y anticipa qué podría salir mal — luego implementa controles antes de que el riesgo se materialice.', work: 'Pregunta "¿qué pasaría si…?" antes de comenzar una tarea compleja o crítica para la seguridad.', street: 'Planifica rutas y tiempos para reducir la exposición a la fatiga y el riesgo.', home: 'Prepárate para los riesgos previsibles antes de que lleguen invitados, niños o nuevas situaciones.' },
+    { title: 'Activar sobre los hábitos', summary: 'Identifica los comportamientos automáticos — seguros e inseguros — que impulsan tu forma de operar, y reemplaza conscientemente los inseguros.', work: 'Nota cuándo estás acelerando los pasos de seguridad por hábito.', street: 'Reconoce las distracciones habituales, como coger el teléfono al volante.', home: 'Rompe las rutinas que llevan repetidamente a accidentes por descuido en casa.' },
+    { title: 'Escanear los casi accidentes', summary: 'Aprende de los casi accidentes revisando qué estados, peligros y hábitos estuvieron involucrados — y qué hacer de manera diferente.', work: 'Analiza cualquier casi accidente con el equipo de forma rápida y honesta.', street: 'Recapitula qué llevó a un casi accidente y ajusta tu comportamiento en adelante.', home: 'Habla de los casos cercanos con los miembros del hogar de forma abierta y sin culpas.' }
+];
 
 // ─── COMPASS ACCORDION ───
 const inner = document.getElementById('compassAccordionInner');
@@ -649,14 +605,21 @@ let isOpen  = false;
 let openIdx = -1;
 
 function renderCompassAccordion() {
-    const competencies = currentLang === 'de' ? competenciesDE : competenciesEN;
-    const workLabel  = currentLang === 'de' ? '<img src="Images/Work Icon nbg.png"> Arbeit'   : '<img src="Images/Work Icon nbg.png">  Work';
-    const streetLabel= currentLang === 'de' ? '<img src="Images/Car Icon nbg.png"> Straße'   : '<img src="Images/Car Icon nbg.png"> Street';
-    const homeLabel  = currentLang === 'de' ? '<img src="Images/Home Icon nbg.png"> Zuhause'  : '<img src="Images/Home Icon nbg.png"> Home';
+    var competencies;
+    if (currentLang === 'de') competencies = competenciesDE;
+    else if (currentLang === 'es') competencies = competenciesES;
+    else competencies = competenciesEN;
+
+    var labels = {
+        en: { work: '<img src="Images/Work Icon nbg.png" alt=""> Work', street: '<img src="Images/Car Icon nbg.png" alt=""> Street', home: '<img src="Images/Home Icon nbg.png" alt=""> Home' },
+        de: { work: '<img src="Images/Work Icon nbg.png" alt=""> Arbeit', street: '<img src="Images/Car Icon nbg.png" alt=""> Straße', home: '<img src="Images/Home Icon nbg.png" alt=""> Zuhause' },
+        es: { work: '<img src="Images/Work Icon nbg.png" alt=""> Trabajo', street: '<img src="Images/Car Icon nbg.png" alt=""> Calle', home: '<img src="Images/Home Icon nbg.png" alt=""> Hogar' }
+    };
+    var L = labels[currentLang] || labels.en;
 
     inner.innerHTML = '';
     competencies.forEach(function(c, i) {
-        const item = document.createElement('div');
+        var item = document.createElement('div');
         item.className = 'cacc-item';
         item.innerHTML =
             '<button class="cacc-header' + (openIdx === i ? ' active' : '') + '" id="cah' + i + '" onclick="toggleCompassItem(' + i + ')">' +
@@ -669,9 +632,9 @@ function renderCompassAccordion() {
                     '<div class="cacc-inner">' +
                         '<p class="cacc-summary">' + c.summary + '</p>' +
                         '<div class="cacc-ctx-rows">' +
-                            '<div class="cacc-ctx-row"><span class="cacc-ctx-lbl">' + workLabel + '</span><span class="cacc-ctx-val">' + c.work + '</span></div>' +
-                            '<div class="cacc-ctx-row"><span class="cacc-ctx-lbl">' + streetLabel + '</span><span class="cacc-ctx-val">' + c.street + '</span></div>' +
-                            '<div class="cacc-ctx-row"><span class="cacc-ctx-lbl">' + homeLabel + '</span><span class="cacc-ctx-val">' + c.home + '</span></div>' +
+                            '<div class="cacc-ctx-row"><span class="cacc-ctx-lbl">' + L.work + '</span><span class="cacc-ctx-val">' + c.work + '</span></div>' +
+                            '<div class="cacc-ctx-row"><span class="cacc-ctx-lbl">' + L.street + '</span><span class="cacc-ctx-val">' + c.street + '</span></div>' +
+                            '<div class="cacc-ctx-row"><span class="cacc-ctx-lbl">' + L.home + '</span><span class="cacc-ctx-val">' + c.home + '</span></div>' +
                         '</div>' +
                     '</div>' +
                 '</div>' +
@@ -695,30 +658,51 @@ window.toggleCompassAccordion = function() {
 };
 
 window.toggleCompassItem = function(i) {
-    const wasOpen = openIdx === i;
-    openIdx = wasOpen ? -1 : i;
+    openIdx = openIdx === i ? -1 : i;
     renderCompassAccordion();
 };
 
-// Initial render
 renderCompassAccordion();
+
+// ─── MOBILE NAV ───
+window.toggleMobileNav = function() {
+    var btn = document.getElementById('hamburgerBtn');
+    var nav = document.getElementById('mobileNav');
+    var isNowOpen = !nav.classList.contains('open');
+    nav.classList.toggle('open', isNowOpen);
+    btn.classList.toggle('open', isNowOpen);
+    btn.setAttribute('aria-expanded', isNowOpen);
+};
+window.closeMobileNav = function() {
+    document.getElementById('mobileNav').classList.remove('open');
+    document.getElementById('hamburgerBtn').classList.remove('open');
+    document.getElementById('hamburgerBtn').setAttribute('aria-expanded', 'false');
+};
+
+// ─── SCROLLED HEADER ───
+(function() {
+    var header = document.querySelector('.site-header');
+    window.addEventListener('scroll', function() {
+        header.classList.toggle('scrolled', window.scrollY > 80);
+    }, { passive: true });
+})();
 
 // ─── SMOOTH SCROLL ───
 function smoothScrollTo(e, id) {
     e.preventDefault();
-    const target = document.getElementById(id);
+    var target = document.getElementById(id);
     if (!target) return;
-    const start    = window.scrollY;
-    const end      = target.getBoundingClientRect().top + start - 60;
-    const duration = 900;
-    let startTime  = null;
+    var start    = window.scrollY;
+    var end      = target.getBoundingClientRect().top + start - 60;
+    var duration = 900;
+    var startTime = null;
     function easeInOutCubic(t) {
         return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
     }
     function step(timestamp) {
         if (!startTime) startTime = timestamp;
-        const elapsed  = timestamp - startTime;
-        const progress = Math.min(elapsed / duration, 1);
+        var elapsed  = timestamp - startTime;
+        var progress = Math.min(elapsed / duration, 1);
         window.scrollTo(0, start + (end - start) * easeInOutCubic(progress));
         if (progress < 1) requestAnimationFrame(step);
     }
@@ -727,18 +711,18 @@ function smoothScrollTo(e, id) {
 
 // ─── ACCORDION ───
 function toggleAcc(header) {
-    const item = header.closest('.acc-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.acc-item.open').forEach(el => el.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
+    var item = header.closest('.acc-item');
+    var wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.acc-item.open').forEach(function(el) { el.classList.remove('open'); });
+    if (!wasOpen) item.classList.add('open');
 }
 
 // ─── HERO SLIDESHOW ───
 (function() {
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots   = document.querySelectorAll('.slide-dot');
-    let current  = 0;
-    let timer;
+    var slides = document.querySelectorAll('.hero-slide');
+    var dots   = document.querySelectorAll('.slide-dot');
+    var current = 0;
+    var timer;
     function goTo(index) {
         slides[current].classList.remove('active');
         dots[current].classList.remove('active');
@@ -751,7 +735,7 @@ function toggleAcc(header) {
         clearInterval(timer);
         timer = setInterval(next, 6000);
     }
-    dots.forEach(dot => {
+    dots.forEach(function(dot) {
         dot.addEventListener('click', function() {
             goTo(parseInt(this.dataset.index));
             startTimer();
@@ -762,7 +746,7 @@ function toggleAcc(header) {
 
 // ─── SCROLL REVEAL ───
 (function() {
-    const observer = new IntersectionObserver(function(entries) {
+    var observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
@@ -778,8 +762,8 @@ function toggleAcc(header) {
 // ─── RESTORE SAVED LANGUAGE ───
 (function() {
     try {
-        const saved = localStorage.getItem('selfty-lang');
-        if (saved === 'de') setLang('de');
+        var saved = localStorage.getItem('selfty-lang');
+        if (saved === 'de' || saved === 'es') setLang(saved);
     } catch(e) {}
 })();
 </script>
