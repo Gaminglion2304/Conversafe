@@ -175,6 +175,7 @@
     </div>
 </section>
 
+
 <!-- ─── SELFTY COMPASS ─── -->
 <section class="compass-section" id="compass">
     <div class="compass-wrap-outer">
@@ -183,16 +184,47 @@
         <div class="compass-left reveal">
             <div class="compass-img-wrap">
                 <div class="compass-stack">
-                    <img src="Images/Text 2.png" class="compass-text" alt="Compass Outer Ring">
-                    <img src="Images/Compass SY.png" class="compass-symbol" alt="Compass Inner Symbol">
+
+                    <!-- OUTER TEXT RING (EN + DE same, ES different) -->
+                    <img 
+                        class="compass-text"
+                        src="Images/Text 2.png"
+                        alt="Compass Outer Ring"
+                        data-en="Images/Text 2.png"
+                        data-de="Images/Text DE.png"
+                        data-es="Images/Text ES.png"
+                    >
+
+                    <!-- INNER COMPASS SYMBOL (EN + DE same, ES different) -->
+                    <img 
+                        class="compass-symbol"
+                        src="Images/Compass SY.png"
+                        alt="Compass Inner Symbol"
+                        data-en="Images/Compass SY.png"
+                        data-de="Images/Compass SY.png"
+                        data-es="Images/Compass ES BG.png"
+                    >
                 </div>
             </div>
+
             <div class="compass-cta">
                 <button class="compass-cta-btn" id="compassCtaBtn" onclick="toggleCompassAccordion()">
-                    <span data-en="Explore the 8 Competencies" data-de="Die 8 Kompetenzen erkunden" data-es="Explorar las 8 Competencias">Explore the 8 Competencies</span> <span class="compass-arrow">›</span>
+                    <span 
+                        data-en="Explore the 8 Competencies" 
+                        data-de="Die 8 Kompetenzen erkunden" 
+                        data-es="Explorar las 8 Competencias"
+                    >
+                        Explore the 8 Competencies
+                    </span>
+                    <span class="compass-arrow">›</span>
                 </button>
             </div>
         </div>
+
+        <!-- RIGHT SIDE (your accordion or content goes here) -->
+        <!-- Keep your existing right-side code below this line -->
+
+            
 
         <!-- RIGHT: intro text + context cards -->
         <div class="compass-right reveal">
@@ -606,13 +638,23 @@ function setLang(lang) {
     document.getElementById('btn-es').classList.toggle('active', lang === 'es');
 
     document.querySelectorAll('[data-en]').forEach(function(el) {
-        const text = el.getAttribute('data-' + lang);
-        if (text !== null) el.innerHTML = text;
+        const value = el.getAttribute('data-' + lang);
+        if (value === null) return;
+
+        // If it's an image → change the src
+        if (el.tagName === 'IMG') {
+            el.src = value;
+        }
+        // Otherwise → update text
+        else {
+            el.innerHTML = value;
+        }
     });
 
     renderCompassAccordion();
     try { localStorage.setItem('selfty-lang', lang); } catch(e) {}
 }
+
 
 // ─── COMPASS DATA ───
 const competenciesEN = [
@@ -627,11 +669,11 @@ const competenciesEN = [
 ];
 
 const competenciesDE = [
-    { title: 'Eigene Zustände erkennen', summary: 'Erkennen Sie, wenn Ihr innerer Zustand — Stress, Müdigkeit, Frustration — Ihre Aufmerksamkeit und Ihr Verhalten beeinträchtigt, bevor Sie handeln.', work: 'Machen Sie eine Pause und bewerten Sie Ihren Zustand, bevor Sie Geräte bedienen oder eine riskante Aufgabe  beginnen.', street: 'Prüfen Sie sich selbst, bevor Ihre Aufmerksamkeit und Ihr Reaktionsvermögen beim Fahren durch Müdigkeit, Ablenkung und Hektik nachlassen.', home: 'Bemerken Erkennen Sie, wenn Sie gereizt oder in Eile sind, und atmen Sie bewusst durch, bevor Sie handeln.' },
+    { title: 'Eigene Zustände erkennen', summary: 'Erkennen Sie, wenn Ihr innerer Zustand — Stress, Müdigkeit, Frustration — Ihre Aufmerksamkeit und Ihr Verhalten beeinträchtigt, bevor Sie handeln.', work: 'Machen Sie eine Pause und bewerten Sie Ihren Zustand, bevor Sie Geräte bedienen oder eine riskante Aufgabe  beginnen.', street: 'Prüfen Sie sich rechtzeitig selbst, bevor Ihre Aufmerksamkeit und Ihr Reaktionsvermögen beim Fahren durch Müdigkeit, Ablenkung und Hektik nachlassen.', home: 'Erkennen Sie, wenn Sie gereizt oder in Eile sind, und atmen Sie bewusst durch, bevor Sie handeln.' },
     { title: 'Umgebung wahrnehmen', summary: 'Erfassen Sie Ihre Umgebung aktiv, anstatt im Autopiloten zu arbeiten — halten Sie die situative Aufmerksamkeit auch in vertrauten Umgebungen aufrecht.', work: 'Bleiben Sie aufmerksam gegenüber wechselnden Bedingungen vor Ort, in der Produktionsebene oder bei Arbeiten in der Höhe.', street: 'Erfassen Sie Straßenverhältnisse, Wetter und das Verhalten anderer Fahrer kontinuierlich.', home: 'Zuhause Behalten Sie Kinder, Haustiere, nasse Oberflächen und sich ändernde örtliche Gefahren im Blick.' },
-    { title: 'Gefahren erkennen', summary: 'Erkennen Sie, wann Sie sich in einem physischen Gefahrenbereich befinden, und reagieren Sie mit der Kompetenz, anzuhalten, zu beurteilen und sicher zu handeln.', work: 'Identifizieren Sie, wenn Sie in der Gefahrenlinie stehen, und treten Sie zurück, bevor Sie handeln.', street: 'Erkennen Sie Griffverlust, eingeschränkte Sicht oder beeinträchtigte Fahrzeugkontrolle.', home: 'Bemerken Sie, wenn eine Aufgabe Ihre körperliche Kapazität übersteigt, und bitten Sie um Hilfe.' },
-    { title: 'Andere beobachten', summary: 'Erkennen Sie die Zustände und Gewohnheiten der Menschen um Sie herum und erkennen Sie unmittelbar drohende Gefahren, bevor diese zu Vorfällen eskalieren.', work: 'Bemerke Kollegen, die von Hektik, Ablenkung, Müdigkeit oder Erschöpfung betroffen sind, bevor diese sich verletzen.', street: 'Bemerken Sie frühzeitig unberechenbares Fahrverhalten und stellen Sie einen sicheren Abstand her.', home: 'Nehmen Sie Stress oder Ablenkung bei Familienmitgliedern wahr und reagieren Sie unterstützend.' },
-    { title: 'Sich selbst oder andere stoppen', summary: 'Seien Sie damit vertraut, wann und wie Sie unsicheres Verhalten — Ihr eigenes oder das eines anderen — innerhalb eines klaren, bewährten Entscheidungsrahmens unterbrechen.', work: 'Wenden Sie die Regel der 3 roten Signale an: Drei Warnzeichen bedeutet, die Aufgabe zu stoppen und neu zu bewerten.', street: 'Halten Sie sofort an, wenn Sie feststellen, dass Ihre Aufmerksamkeit und Ihr Reaktionsvermögen durch Hektik, Müdigkeit oder Ablenkung zu stark beeinträchtigt sind, um sicher fahren zu können.', home: 'Greifen Sie entschlossen ein, wenn Familienmitglied in Gefahr gerät.' },
+    { title: 'Gefahren erkennen', summary: 'Erkennen Sie, wenn Sie sich in einem physischen Gefahrenbereich befinden, und reagieren Sie mit der Kompetenz „anhalten,  bewerten, sicher zu handeln. ', work: 'Erkennen Sie, wenn Sie sich in einen Gefahrenbereich begeben, und verlassen Sie ihn, bevor Sie handeln.', street: 'Erkennen Sie verminderte Bodenhaftung, eingeschränkte Sicht oder beeinträchtigte Fahrzeugkontrolle.', home: 'Bemerken Sie, wenn eine Aufgabe Ihr körperliches Leistungsvermögen übersteigt, und bitten Sie um Hilfe.' },
+    { title: 'Andere beobachten', summary: 'Erkennen Sie die Zustände und Gewohnheiten der Menschen um Sie herum und erkennen Sie unmittelbar drohende Gefahren, bevor diese zu Vorfällen eskalieren.', work: 'Bemerken Sie  Kollegen, die von Hektik, Ablenkung, Müdigkeit oder Erschöpfung betroffen sind, bevor diese sich verletzen.', street: 'Bemerken Sie frühzeitig unberechenbares Fahrverhalten und stellen Sie einen sicheren Abstand her.', home: 'Nehmen Sie Stress oder Ablenkung bei Familienmitgliedern wahr und reagieren Sie unterstützend.' },
+    { title: 'Sich selbst oder andere stoppen', summary: 'Seien Sie damit vertraut, wann und wie Sie unsicheres Verhalten — Ihr eigenes oder das eines anderen — innerhalb eines klaren, bewährten Entscheidungsrahmens unterbrechen.', work: 'Wenden Sie die Regel der 3 roten Signale an: Drei Warnzeichen bedeutet, die Aufgabe zu stoppen und neu zu bewerten.', street: 'Halten Sie sofort an, wenn Sie feststellen, dass Ihre Aufmerksamkeit und Ihr Reaktionsvermögen durch Hektik, Müdigkeit oder Ablenkung zu stark beeinträchtigt sind, um sicher fahren zu können.', home: 'Greifen Sie entschlossen ein, wenn ein Familienmitglied in Gefahr gerät.' },
     { title: 'Voraussicht üben ', summary: 'Üben Sie Voraussicht und antizipieren Sie, was schiefgehen könnte — und sehen Sie  Kontrollenpunkte vor, bevor das Risiko eintritt.', work: 'Stellen Sie „Was wäre wenn"-Fragen, bevor Sie eine komplexe oder sicherheitskritische Aufgabe beginnen', street: 'Planen Sie Routen und zeitliche Veräufe, um Müdigkeit und Risiko zu reduzieren.', home: 'Bereiten Sie sich auf vorhersehbare Risiken vor, bevor Gäste, Kinder oder neue Situationen eintreffen.' },
     { title: 'Sichere Gewohnheiten entwickeln', summary: 'Identifizieren Sie automatische Verhaltensweisen — sichere wie unsichere — die Ihr Verhalten bestimmen, und ersetzen Sie gezielt unsichere Gewohnheiten.', work: 'Bemerken Sie, wenn Sie aus Gewohnheit sichere Vorgehensweise in Eile durchlaufen.', street: 'Erkennen Sie typische Ablenkungen, z. B. das Benutzen des Handys während der Fahrt.', home: 'Durchbrechen Sie Routinen, die wiederholt zu Unachtsamkeit und kritischen Situationen zuhause führen.' },
     { title: 'Beinahe-Unfälle reflektieren', summary: 'Lernen Sie aus Beinahe-Unfällen, indem Sie überprüfen, welche Zustände, Gefahren und Gewohnheiten eine Rolle gespielt haben — und was Sie anders machen sollten.', work: 'Analysieren Sie jeden Beinahe-Unfall im Team zeitnah und offen.', street: 'Rekapitulieren Sie, was zu einem Beinahe-Unfall geführt hat, und passen Sie Ihr Verhalten an.', home: 'Besprechen Sie kritische Situationen mit Familienmitgliedern offen und ohne Schuldzuweisungen.' }
